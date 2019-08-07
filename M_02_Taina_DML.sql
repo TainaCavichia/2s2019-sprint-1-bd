@@ -13,7 +13,7 @@ INSERT INTO Categorias(Nome)
 SELECT * FROM Categorias ORDER BY IdCategoria ASC;
 
 INSERT INTO Eventos(Titulo, Descricao, DataEvento, Ativo, Localizacao, IdCategoria)
-	VALUES ('Ping Pong', 'Campeonato redes contra dev', GETDATE(), 1, 'Alameda Barão de Limeira, 539', 1);
+	VALUES ('Ping Pong', 'Campeonato redes contra dev', '2019-06-03T19:00:00', 1, 'Alameda Barão de Limeira, 539', 1);
 
 SELECT * FROM Eventos ORDER BY IdEvento ASC;
 SELECT * FROM Presencas;
