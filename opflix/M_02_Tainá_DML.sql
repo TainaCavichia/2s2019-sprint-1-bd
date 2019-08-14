@@ -40,3 +40,30 @@ INSERT INTO Favoritos (IdUsuario, IdLancamento)
 		  ,(3,1)
 		  ,(4,2)
 		  ,(4,3);
+
+UPDATE Usuarios
+SET IdTipoUsuario = 1
+WHERE IdUsuario = 2;
+
+INSERT INTO Lancamentos (Titulo, Sinopse, IdCategoria, IdTipo, TempoDuracao, DataLancamento, IdPlataforma)
+	VALUES ('Deuses Americanos','Shadow Moon é um ex-vigarista que serve como segurança e companheiro de viagem para o Sr. Wednesday',3,2,'50 min/ ep','2009-03-01T19:00:00',1);
+
+DELETE FROM Lancamentos WHERE IdLancamento = 4;
+
+INSERT INTO Lancamentos (Titulo, Sinopse, IdCategoria, IdTipo, TempoDuracao, DataLancamento, IdPlataforma, Descricao)
+	VALUES ('Velozes e Furiosos','Luke Hobbs se junta ao fora da lei Deckard Shaw',3,1,'2 horas','2019-07-01T12:00:00',2,9);
+
+UPDATE Lancamentos
+SET Descricao = '6 temporadas'
+WHERE IdLancamento = 3;
+
+INSERT INTO Lancamentos (Titulo, Sinopse, IdCategoria, IdTipo, TempoDuracao, DataLancamento, IdPlataforma, Descricao)
+	VALUES ('La Casa de Papel','Um grupo de nove ladrões, liderados por um Professor',3,2,'40 min/ ep','2017-07-30T12:00:00',1,3);
+
+UPDATE Lancamentos
+SET Descricao = '3 temporadas'
+WHERE IdLancamento = 6;
+
+UPDATE Lancamentos
+SET DataLancamento = '1994-07-08T19:00:00'
+WHERE IdLancamento = 1;

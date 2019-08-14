@@ -55,3 +55,5 @@ CREATE TABLE Favoritos
 	IdUsuario INT FOREIGN KEY REFERENCES Usuarios (IdUsuario)
 	,IdLancamento INT FOREIGN KEY REFERENCES Lancamentos (IdLancamento)
 );
+
+ALTER TABLE Lancamentos ADD Descricao VARCHAR(200) NULL;
