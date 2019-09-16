@@ -1,0 +1,710 @@
+{
+	"info": {
+		"_postman_id": "8d1d2906-462d-4308-8f56-0bada28ba86e",
+		"name": "Senai.OpFlix.Manha",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Usuarios.Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\" : \"t@ata.com\",\n\t\"senha\" : 123123\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuarios.Listar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRAYXRhLmNvbSIsImp0aSI6IjEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNTY4MjkwOTkyLCJpc3MiOiJPcEZsaXguV2ViQXBpIiwiYXVkIjoiT3BGbGl4LldlYkFwaSJ9.39L39GZecCYZR2XdZ6IMbzBBzm65bCLi19BuitJj_0g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuarios.Cadastrar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRAYXRhLmNvbSIsImp0aSI6IjEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNTY4MTEzODk5LCJpc3MiOiJPcEZsaXguV2ViQXBpIiwiYXVkIjoiT3BGbGl4LldlYkFwaSJ9.A6ogq8UIgEYbghUB1ywCZpCWGkSLUy69C-EwlIPUXYQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"nome\": \"Giovanna\",\r\n        \"email\": \"g@agi.com\",\r\n        \"dataNascimento\": \"2001-02-22T00:00:00\",\r\n        \"cpf\": \"23423434236\",\r\n        \"telefone\": \"40000-0000\",\r\n        \"senha\": \"123321\",\r\n        \"idTipoUsuario\": 2\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuarios.CadastrarCliente",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFAYWFyLmNvbSIsImp0aSI6IjMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJDb211bSIsImV4cCI6MTU2ODEyMjA5NiwiaXNzIjoiT3BGbGl4LldlYkFwaSIsImF1ZCI6Ik9wRmxpeC5XZWJBcGkifQ.NFtfTQO5aMIS8AeplRcmFY4E9Fy5ZFaI5HI9p0hOsPU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n        \"nome\": \"Giovanni\",\n        \"email\": \"g@agio.com\",\n        \"dataNascimento\": \"2001-02-22T00:00:00\",\n        \"cpf\": \"23423434237\",\n        \"telefone\": \"92000-0000\",\n        \"senha\": \"123123\",\n        \"idTipoUsuario\": 1\n    \n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/usuarios/cadastrarCliente",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"usuarios",
+								"cadastrarCliente"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categorias",
+			"item": [
+				{
+					"name": "Categorias.Listar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRAYXRhLmNvbSIsImp0aSI6IjEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNTY4MTEzODk5LCJpc3MiOiJPcEZsaXguV2ViQXBpIiwiYXVkIjoiT3BGbGl4LldlYkFwaSJ9.A6ogq8UIgEYbghUB1ywCZpCWGkSLUy69C-EwlIPUXYQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/categorias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categorias.Cadastrar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRAYXRhLmNvbSIsImp0aSI6IjEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNTY4MTEzODk5LCJpc3MiOiJPcEZsaXguV2ViQXBpIiwiYXVkIjoiT3BGbGl4LldlYkFwaSJ9.A6ogq8UIgEYbghUB1ywCZpCWGkSLUy69C-EwlIPUXYQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\" : \"Religioso\"\n}"
+						},
+						"url": {
+							"raw": "localhost:5000/api/categorias",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categorias.Atualizar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRAYXRhLmNvbSIsImp0aSI6IjEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNTY4MTEzODk5LCJpc3MiOiJPcEZsaXguV2ViQXBpIiwiYXVkIjoiT3BGbGl4LldlYkFwaSJ9.A6ogq8UIgEYbghUB1ywCZpCWGkSLUy69C-EwlIPUXYQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"idCategoria\" : 6,\n\t\"nome\" : \"Ficção\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/categorias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Lancamentos",
+			"item": [
+				{
+					"name": "Lancamentos.Listar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRAYXRhLmNvbSIsImp0aSI6IjEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNTY4MjkwOTkyLCJpc3MiOiJPcEZsaXguV2ViQXBpIiwiYXVkIjoiT3BGbGl4LldlYkFwaSJ9.39L39GZecCYZR2XdZ6IMbzBBzm65bCLi19BuitJj_0g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/lancamentos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"lancamentos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lancamentos.BuscarPorId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRAYXRhLmNvbSIsImp0aSI6IjEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNTY4MTEzODk5LCJpc3MiOiJPcEZsaXguV2ViQXBpIiwiYXVkIjoiT3BGbGl4LldlYkFwaSJ9.A6ogq8UIgEYbghUB1ywCZpCWGkSLUy69C-EwlIPUXYQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/lancamentos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"lancamentos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lancamentos.Cadastrar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRAYXRhLmNvbSIsImp0aSI6IjEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNTY4MTEzODk5LCJpc3MiOiJPcEZsaXguV2ViQXBpIiwiYXVkIjoiT3BGbGl4LldlYkFwaSJ9.A6ogq8UIgEYbghUB1ywCZpCWGkSLUy69C-EwlIPUXYQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"titulo\": \"To all the boys that I've loved before\",\r\n        \"sinopse\": \"cliche romantico fofo\",\r\n        \"idCategoria\": 2,\r\n        \"idTipo\": 1,\r\n        \"tempoDuracao\": \"2 horas\",\r\n        \"dataLancamento\": \"2018-07-08T19:00:00\",\r\n        \"idPlataforma\": 1,\r\n        \"descricao\": \"1\"\r\n    }"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/lancamentos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"lancamentos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lancamentos.Atualizar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRAYXRhLmNvbSIsImp0aSI6IjEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNTY4MTEzODk5LCJpc3MiOiJPcEZsaXguV2ViQXBpIiwiYXVkIjoiT3BGbGl4LldlYkFwaSJ9.A6ogq8UIgEYbghUB1ywCZpCWGkSLUy69C-EwlIPUXYQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"idLancamento\" : 7,\n\t\"titulo\" : \"Para todos os garotos que já amei\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/lancamentos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"lancamentos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lancamentos.Deletar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRAYXRhLmNvbSIsImp0aSI6IjEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNTY4MTEzODk5LCJpc3MiOiJPcEZsaXguV2ViQXBpIiwiYXVkIjoiT3BGbGl4LldlYkFwaSJ9.A6ogq8UIgEYbghUB1ywCZpCWGkSLUy69C-EwlIPUXYQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/lancamentos/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"lancamentos",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lancamentos.FiltrarPorPlataforma",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRAYXRhLmNvbSIsImp0aSI6IjEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNTY4Mjk3NzUxLCJpc3MiOiJPcEZsaXguV2ViQXBpIiwiYXVkIjoiT3BGbGl4LldlYkFwaSJ9.G7eb_13yTrbeJlTpjEB8rpLJAVygfqxSl84bouOg0pI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/lancamentos/filtrar/netflix",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"lancamentos",
+								"filtrar",
+								"netflix"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lancamentos.FiltrarPorData",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRAYXRhLmNvbSIsImp0aSI6IjEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNTY4MzM0Nzk1LCJpc3MiOiJPcEZsaXguV2ViQXBpIiwiYXVkIjoiT3BGbGl4LldlYkFwaSJ9.CGthEwkq0-144IKHZKMlQsIeRtQmkam_H2coCZvHje0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/lancamentos/filtrarpordata/2019-08-12 08:00:00.000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"lancamentos",
+								"filtrarpordata",
+								"2019-08-12 08:00:00.000"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Plataformas",
+			"item": [
+				{
+					"name": "Plataformas.Listar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRAYXRhLmNvbSIsImp0aSI6IjEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNTY4MTEzODk5LCJpc3MiOiJPcEZsaXguV2ViQXBpIiwiYXVkIjoiT3BGbGl4LldlYkFwaSJ9.A6ogq8UIgEYbghUB1ywCZpCWGkSLUy69C-EwlIPUXYQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/plataformas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"plataformas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Plataformas.Cadastrar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRAYXRhLmNvbSIsImp0aSI6IjEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNTY4MTEzODk5LCJpc3MiOiJPcEZsaXguV2ViQXBpIiwiYXVkIjoiT3BGbGl4LldlYkFwaSJ9.A6ogq8UIgEYbghUB1ywCZpCWGkSLUy69C-EwlIPUXYQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\" : \"Rede Globo\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/plataformas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"plataformas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Plataformas.Atualizar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRAYXRhLmNvbSIsImp0aSI6IjEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNTY4MTEzODk5LCJpc3MiOiJPcEZsaXguV2ViQXBpIiwiYXVkIjoiT3BGbGl4LldlYkFwaSJ9.A6ogq8UIgEYbghUB1ywCZpCWGkSLUy69C-EwlIPUXYQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"idPlataforma\" : 4,\n\t\"nome\" : \"Pop Corn Time\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/plataformas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"plataformas"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Favoritos",
+			"item": [
+				{
+					"name": "Favoritos.Listar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRAYXRhLmNvbSIsImp0aSI6IjEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNTY4MjkwOTkyLCJpc3MiOiJPcEZsaXguV2ViQXBpIiwiYXVkIjoiT3BGbGl4LldlYkFwaSJ9.39L39GZecCYZR2XdZ6IMbzBBzm65bCLi19BuitJj_0g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/favoritos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"favoritos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Favoritos.Cadastrar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRAYXRhLmNvbSIsImp0aSI6IjEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNTY4MjkwOTkyLCJpc3MiOiJPcEZsaXguV2ViQXBpIiwiYXVkIjoiT3BGbGl4LldlYkFwaSJ9.39L39GZecCYZR2XdZ6IMbzBBzm65bCLi19BuitJj_0g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"idLancamento\" : 3\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/favoritos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"favoritos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
