@@ -15,7 +15,7 @@ namespace Senai.OpFlix.WebApi.Repositories
         {
             using (OpFlixContext ctx = new OpFlixContext())
             {
-                Usuarios UsuarioBuscado = ctx.Usuarios.Include(x => x.IdTipoUsuarioNavigation.TipoUsuario).FirstOrDefault(x => x.Email == login.Email && x.Senha == login.Senha);
+                Usuarios UsuarioBuscado = ctx.Usuarios.Include(x => x.IdTipoUsuarioNavigation).FirstOrDefault(x => x.Email == login.Email && x.Senha == login.Senha);
 
                 if (UsuarioBuscado == null)
                 {
@@ -25,14 +25,29 @@ namespace Senai.OpFlix.WebApi.Repositories
             }
         }
 
-        public List<Usuarios> Listar()
+        public List<UsuarioViewModel> Listar()
         {
+            List<UsuarioViewModel> usuariosViewModel = new List<UsuarioViewModel>();
+
             using (OpFlixContext ctx = new OpFlixContext())
             {
-                return ctx.Usuarios.ToList();
+                List<Usuarios> usuarios = ctx.Usuarios.Include(x => x.IdTipoUsuarioNavigation).ToList();
+                foreach (var item in usuarios)
+                {
+                    UsuarioViewModel usuarioViewModel = new UsuarioViewModel();
+                    usuarioViewModel.IdUsuario = item.IdUsuario;
+                    usuarioViewModel.Nome = item.Nome;
+                    usuarioViewModel.Email = item.Email;
+                    usuarioViewModel.Telefone = item.Telefone;
+                    usuarioViewModel.Cpf = item.Cpf;
+                    usuarioViewModel.DataNascimento = item.DataNascimento;
+                    usuarioViewModel.IdTipoUsuario = item.IdTipoUsuario;
+                    usuarioViewModel.Favoritos = item.Favoritos;
+                    usuariosViewModel.Add(usuarioViewModel);
+                }
+                return usuariosViewModel;
             }
         }
-
         public void Cadastrar(Usuarios usuario)
         {
             using (OpFlixContext ctx = new OpFlixContext())

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Senai.OpFlix.WebApi.Domains;
@@ -22,12 +23,23 @@ namespace Senai.OpFlix.WebApi.Controllers
             LancamentoRepository = new LancamentoRepository();
         }
 
+        /// <summary>
+        /// Listar lançamentos
+        /// </summary>
+        /// <returns> lista de lançamentos </returns>
+        [Authorize(Roles = "Administrador")]
         [HttpGet]
         public IActionResult Listar()
         {
             return Ok(LancamentoRepository.Listar());
         }
 
+        /// <summary>
+        /// Buscar lançamento por id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns> lançamento </returns>
+        [Authorize(Roles = "Administrador")]
         [HttpGet("{id}")]
         public IActionResult BuscarPorId(int id)
         {
@@ -40,7 +52,13 @@ namespace Senai.OpFlix.WebApi.Controllers
 
             return Ok(lancamento);
         }
-
+        
+        /// <summary>
+        /// Cadastrar lançamentos
+        /// </summary>
+        /// <param name="lancamento"></param>
+        /// <returns> lançamento cadastrado </returns>
+        [Authorize(Roles = "Administrador")]
         [HttpPost]
         public IActionResult Cadastrar(Lancamentos lancamento)
         {
@@ -55,6 +73,12 @@ namespace Senai.OpFlix.WebApi.Controllers
             }
         }
 
+        /// <summary>
+        /// Atualizar título do lançamento
+        /// </summary>
+        /// <param name="lancamento"></param>
+        /// <returns> lançamento atualizado</returns>
+        [Authorize(Roles = "Administrador")]
         [HttpPut]
         public IActionResult Atualizar(Lancamentos lancamento)
         {
@@ -76,6 +100,12 @@ namespace Senai.OpFlix.WebApi.Controllers
             }
         }
 
+        /// <summary>
+        /// Deletar um lançamento
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns> lançamento deletado </returns>
+        [Authorize(Roles = "Administrador")]
         [HttpDelete("{id}")]
         public IActionResult Deletar(int id)
         {
@@ -95,6 +125,30 @@ namespace Senai.OpFlix.WebApi.Controllers
             {
                 return BadRequest();
             }
+        }
+
+        /// <summary>
+        /// Listar lançamentos filtrando pela plataforma 
+        /// </summary>
+        /// <param name="plataforma"></param>
+        /// <returns> lista de lançamentos </returns>
+        [Authorize(Roles = "Administrador")]
+        [HttpGet("filtrarporplataforma/{plataforma}")]
+        public IActionResult FiltarPorPlataforma(string plataforma)
+        {
+            return Ok(LancamentoRepository.FiltrarPorPlataforma(plataforma));
+        }
+
+        /// <summary>
+        /// Listar lançamentos filtrando pela data de lançamento 
+        /// </summary>
+        /// <param name="plataforma"></param>
+        /// <returns> lista de lançamentos </returns>
+        [Authorize(Roles = "Administrador")]
+        [HttpGet("filtrarpordata/{data}")]
+        public IActionResult FiltarPorData(DateTime data)
+        {
+            return Ok(LancamentoRepository.FiltrarPorData(data));
         }
     }
 }

@@ -26,6 +26,11 @@ namespace Senai.OpFlix.WebApi.Controllers
             UsuarioRepository = new UsuarioRepository();
         }
 
+        /// <summary>
+        /// Logar um usuário e gerar um token
+        /// </summary>
+        /// <param name="login"></param>
+        /// <returns> token </returns>
         [HttpPost]
         public IActionResult Login(LoginViewModel login)
         {

@@ -1,4 +1,5 @@
-﻿using Senai.OpFlix.WebApi.Domains;
+﻿using Microsoft.EntityFrameworkCore;
+using Senai.OpFlix.WebApi.Domains;
 using Senai.OpFlix.WebApi.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -14,9 +15,18 @@ namespace Senai.OpFlix.WebApi.Repositories
             using (OpFlixContext ctx = new OpFlixContext())
             {
                 Plataformas PlataformaBuscada = ctx.Plataformas.FirstOrDefault(x => x.IdPlataforma == plataforma.IdPlataforma);
+                PlataformaBuscada.IdPlataforma = plataforma.IdPlataforma;
                 PlataformaBuscada.Nome = plataforma.Nome;
-                ctx.Plataformas.Update(plataforma);
+                ctx.Plataformas.Update(PlataformaBuscada);
                 ctx.SaveChanges();
+            }
+        }
+
+        public Plataformas BuscarPorId(int id)
+        {
+            using (OpFlixContext ctx = new OpFlixContext())
+            {
+                return ctx.Plataformas.FirstOrDefault(x => x.IdPlataforma == id);
             }
         }
 
@@ -33,7 +43,7 @@ namespace Senai.OpFlix.WebApi.Repositories
         {
             using (OpFlixContext ctx = new OpFlixContext())
             {
-                return ctx.Plataformas.ToList();
+                return ctx.Plataformas.Include(x => x.Lancamentos).ToList();
             }
         }
     }
