@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Footer from '../../components/Footer/Footer';
 import Titulo from '../../components/Titulo/Titulo'
+import Axios from 'axios';
 
 //listar usuários do bd
 class Usuarios extends Component{

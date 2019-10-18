@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Axios from 'axios';
 
 class Login extends Component{
 
@@ -42,7 +43,55 @@ class Login extends Component{
     render(){
         return(
             <div>
+                <section className="container flex">
+            <div className="img__login"><div className="img__overlay"></div></div>
 
+            <div className="item__login">
+                <div className="row">
+                <div className="item">
+                    <img src="" className="icone__login" />
+                </div>
+                <div className="item" id="item__title">
+                    <p className="text__login" id="item__description">
+                    Bem-vindo! Faça login para acessar sua conta.
+                    </p>
+                </div>
+                <form onSubmit={this.efetuarLogin}>
+                    <div className="item">
+                    <input
+                        className="input__login"
+                        placeholder="username"
+                        onInput={this.atualizaEstadoEmail}
+                        type="text"
+                        name="username"
+                        id="login__email"
+                    />
+                    <p 
+                        className="text__login"
+                        style={{color: "red", textAlign: "center"}}
+                    >
+                        {this.state.erro}
+                    </p>
+                    </div>
+                    <div className="item">
+                    <input
+                        className="input__login"
+                        onInput={this.atualizaEstadoSenha}
+                        placeholder="password"
+                        type="password"
+                        name="password"
+                        id="login__password"
+                    />
+                    </div>
+                    <div className="item">
+                    <button className="btn btn__login" id="btn__login">
+                        Login
+                    </button>
+                    </div>
+                </form>
+                </div>
+            </div>
+            </section>
             </div>
         );
     }

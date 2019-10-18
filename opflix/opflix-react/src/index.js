@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './pages/Home/App';
 import Login from './pages/Login/Login';
 import Lancamentos from './pages/Lançamentos/Lancamentos';
 import Usuarios from './pages/Usuarios/Usuarios';
@@ -11,6 +11,7 @@ import CadastroLancamentos from './pages/CadastroLançamentos/CadastroLancamento
 import CriarConta from './pages/CriarContaCom/CriarConta';
 import CriarContaAdm from './pages/CriarContaAdm/CriarContaAdm';
 import * as serviceWorker from './serviceWorker';
+import {Route, Link, BrowserRouter as Router, Switch, Redirect} from 'react-router-dom';
 
 const RotaPrivada = ({component: Component}) =>(
     <Route 

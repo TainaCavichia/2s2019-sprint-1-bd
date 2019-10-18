@@ -68,7 +68,7 @@ namespace Senai.OpFlix.WebApi.Repositories
         {
             using (OpFlixContext ctx = new OpFlixContext())
             {
-                return ctx.Lancamentos.ToList();
+                return ctx.Lancamentos.Include(x => x.IdCategoriaNavigation ).Include(x => x.IdTipoNavigation).Include(x => x.IdPlataformaNavigation).ToList();
             }
         }
     }
