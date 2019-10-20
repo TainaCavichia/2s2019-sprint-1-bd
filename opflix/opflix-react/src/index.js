@@ -4,6 +4,7 @@ import './index.css';
 import App from './pages/Home/App';
 import Login from './pages/Login/Login';
 import Lancamentos from './pages/Lançamentos/Lancamentos';
+import LancametosAdmin from './pages/LançamentosAdmin/LancamentosAdmin';
 import Usuarios from './pages/Usuarios/Usuarios';
 import Categorias from './pages/Categorias/Categorias';
 import Plataformas from './pages/Plataformas/Plataformas';
@@ -28,6 +29,7 @@ const routing = (
             <Switch>
             <Route exact path='/' component={App}/>
             <Route path='/lancamentos' component={Lancamentos}/>
+            <RotaPrivada path='/lancamentosadmin' component={LancametosAdmin}/>
             <RotaPrivada path='/categorias' component={Categorias}/>
             <RotaPrivada path='/plataformas' component={Plataformas}/>
             <RotaPrivada path='/cadastrolancamentos' component={CadastroLancamentos}/>

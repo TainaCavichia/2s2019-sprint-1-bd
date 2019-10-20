@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Footer from '../../components/Footer/Footer';
 import Titulo from '../../components/Titulo/Titulo'
+import '../../assets/css/categorias.css';
 
 class Plataformas extends Component{
     constructor(){
@@ -48,63 +49,67 @@ class Plataformas extends Component{
     render(){
         return(
             <div>
-                  <header className="cabecalhoPrincipal">
-                    <div className="container">
-                        <img src="" />
-
-                        <nav className="cabecalhoPrincipal-nav">
-                            Administrador
-          </nav>
-                    </div>
-                </header>
-
-                <main className="conteudoPrincipal">
-                    <section className="conteudoPrincipal-cadastro">
-                        <Titulo titulo='Cadastrar Plataforma' />
-                        <div className="container" id="conteudoPrincipal-lista">
-                            <div id="conteudoPrincipal-cadastro">
-                                <form>
-                                    <div className="container">
-                                        <input
-                                            type="text"
-                                            className="className__categoria"
-                                            id="input__categoria"
-                                            placeholder="tipo do evento"
-                                            value={this.state.nome}
-                                            onChange={this.atualizarNome}
-                                        />
-                                        <button
-                                            onClick={this.adicionaItem}
-                                            id="btn__cadastrar"
-                                            className="conteudoPrincipal-btn conteudoPrincipal-btn-cadastro"
-                                        >
-                                            Cadastrar
-                </button>
-                                    </div>
-                                </form>
-                            </div>
-                            <table id="tabela-lista">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Nome</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody id="tabela-lista-corpo">
-                                    {this.state.lista.map(element => {
-                                        return (
-                                            <tr key={element.idPlataforma}>
-                                                <tr>{element.idPlataforma}</tr>
-                                                <td>{element.nome}</td>
-                                            </tr>
-                                        )
-                                    })}
-                                </tbody>
-                            </table>
-                        </div>
-                    </section>
-                </main>
+                  <header>
+    <div >
+        <nav className="container">
+        <div className="conteudo-imagem">
+            <img className="logo" src="https://fontmeme.com/permalink/191012/f031c30da3e8b41e40dc9ad5f3a3559e.png"/>
+        </div>
+        <div className="admin">
+            <li>Plataformas</li>
+            <li>Categorias</li>
+            <li>Lançamentos</li>
+            <li>Usuários</li>
+            <li>Logout</li>
+        </div>
+        </nav>
+    </div>
+</header>
+<body>
+    <main>
+        <section>
+            <Titulo titulo='c a d a s t r a r  p l a t a f o r m a' />
+        <div>
+            <form>
+                <div>
+                    <input className="input_categoria"
+                    placeholder="nome"
+                    type="text"
+                    name="name"
+                    type="text"
+                    value={this.state.nome}
+                    onChange={this.atualizarNome}/> 
+                </div>
+                <div>
+                    <button onClick={this.adicionaItem} className="btn_categoria">Cadastrar</button>
+                </div>
+            </form>
+        </div>
+        <div>
+            <table id="tabela-lista">
+                <thead>
+                    <tr>
+                    <th>#</th>
+                    <th>plataforma</th>
+                    </tr>
+                </thead>
+        
+                <tbody id="tabela-lista-corpo">
+                    {this.state.lista.map(element => {
+                        return (
+                            <tr key={element.idPlataforma}>
+                                <tr>{element.idPlataforma}</tr>
+                                <td>{element.nome}</td>
+                            </tr>
+                        )
+                    })}
+                </tbody>
+            </table>
+        </div>
+    </section>
+    
+</main>
+</body>
 
                 <Footer />
 

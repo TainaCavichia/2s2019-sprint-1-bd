@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+}
+html {
+    scroll-behavior: smooth;
+  }
+.logo{
+    width: 10%;
+}
+.divdiv{
+    display: flex;
+    justify-content: space-between;
+}
+.banner{
+    width: 100%;
+    height: 500px;
+}
+.cabecalhoPrincipal-nav{
+    display: flex;
+}
+body{
+    background-color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+h2{
+    padding: 8% 0 5% 0;
+    font-size: 5vh;
+    text-align: center;
+    color: #8D0D0D;
+}
+main{
+    margin: 0 auto;
+    max-width: 1360px;
+    width: 80%;
+}
+.conteudoPrincipal-funcionalidades{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15%;
+}
+.conteudoPrincipal-funcionalidades p{
+    font-weight: bold;
+    font-size: 4vh;
+}
+.imagem{
+    width: 40%;
+    height: 40%;
+}
+.redes-sociais{
+    width: 5%;
+    height: 5%;
+    padding-top: 3%;
+}
+.conteudoimg{
+    display: flex;
+    justify-content: space-around;
+}
+.conteudo-contato-endereco{
+    text-align: center;
+    padding: 5%;
+    font-weight: bold;
+}
+footer{
+    padding: 3vh;
+    text-align: center;
+    background-color: #8D0D0D;
+}

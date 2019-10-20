@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+}
+.container{
+    background-color: #8D0D0D;
+    display: flex; 
+    justify-content: space-between; 
+}
+body{
+    background-color: black;
+    color: white;
+}
+main{
+    margin: 0 auto;
+    max-width: 1360px;
+    width: 70%;
+}

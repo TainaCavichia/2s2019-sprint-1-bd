@@ -1,9 +1,10 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Axios from 'axios';
+import '../../assets/css/login.css';
 
-class Login extends Component{
+class Login extends Component {
 
-    constructor(){
+    constructor() {
         super();
         this.state = {
             email: "",
@@ -11,87 +12,73 @@ class Login extends Component{
             erro: ""
         }
     }
-    atualizaEstadoEmail = (event) =>{
-        this.setState({email: event.target.value});
+    atualizaEstadoEmail = (event) => {
+        this.setState({ email: event.target.value });
     }
- 
-    atualizaEstadoSenha = (event) =>{
-        this.setState({senha: event.target.value});
+
+    atualizaEstadoSenha = (event) => {
+        this.setState({ senha: event.target.value });
     }
-    efetuarLogin = (event) =>{
+    efetuarLogin = (event) => {
         event.preventDefault();
-        
+
         Axios.post("http://localhost:5000/api/login", {
-            email: this.state.email, 
+            email: this.state.email,
             senha: this.state.senha
         })
-            .then(response =>{
-                if(response.status === 200){
+            .then(response => {
+                if (response.status === 200) {
                     console.log(response.data.token);
-                    localStorage.setItem("usuario-opflix",response.data.token); 
+                    localStorage.setItem("usuario-opflix", response.data.token);
                     this.props.history.push('/lancamentos');
-                }else{
+                } else {
                     console.log('eitaa');
                 }
             })
-            .catch(erro => { 
-                this.setState({ erro: "Usuário ou senha inválidos"});
+            .catch(erro => {
+                this.setState({ erro: "Usuário ou senha inválidos" });
                 console.log(erro);
             });
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <div>
-                <section className="container flex">
-            <div className="img__login"><div className="img__overlay"></div></div>
+                <main className="conteudoPrincipal">
+                    <section id="conteudoPrincipal-eventos">
+                        <div className="container">
+                            <div className="imagem-Iti">
+                                <img className="iti" src="img/e08eff592970703.png" />
+                            </div>
+                            <div className="conteudoPrincipal-funcionalidades">
+                                <img className="opflix" src="https://fontmeme.com/permalink/191012/733b6dd4db71e3c5c747ba52909fde7d.png" />
+                                <form onSubmit={this.efetuarLogin}>
+                                    <div className="item">
+                                        <input className="input__login"
+                                            placeholder="username"
+                                            onInput={this.atualizaEstadoEmail}
+                                            type="text"
+                                            name="username"
+                                            type="text" />
+                                    </div>
+                                    <div className="item">
+                                        <input className="input__login"
+                                            onInput={this.atualizaEstadoSenha}
+                                            placeholder="password"
+                                            type="password"
+                                            name="password" />
+                                    </div>
+                                    <div className="item">
+                                        <button className="btn btn__login" id="btn__login">
+                                            Login
+                                </button>
+                                    </div>
+                                </form>
+                            </div>
 
-            <div className="item__login">
-                <div className="row">
-                <div className="item">
-                    <img src="" className="icone__login" />
-                </div>
-                <div className="item" id="item__title">
-                    <p className="text__login" id="item__description">
-                    Bem-vindo! Faça login para acessar sua conta.
-                    </p>
-                </div>
-                <form onSubmit={this.efetuarLogin}>
-                    <div className="item">
-                    <input
-                        className="input__login"
-                        placeholder="username"
-                        onInput={this.atualizaEstadoEmail}
-                        type="text"
-                        name="username"
-                        id="login__email"
-                    />
-                    <p 
-                        className="text__login"
-                        style={{color: "red", textAlign: "center"}}
-                    >
-                        {this.state.erro}
-                    </p>
-                    </div>
-                    <div className="item">
-                    <input
-                        className="input__login"
-                        onInput={this.atualizaEstadoSenha}
-                        placeholder="password"
-                        type="password"
-                        name="password"
-                        id="login__password"
-                    />
-                    </div>
-                    <div className="item">
-                    <button className="btn btn__login" id="btn__login">
-                        Login
-                    </button>
-                    </div>
-                </form>
-                </div>
-            </div>
-            </section>
+                        </div>
+                    </section>
+                </main>
             </div>
         );
     }

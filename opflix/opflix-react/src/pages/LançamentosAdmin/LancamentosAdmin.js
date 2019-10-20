@@ -34,6 +34,10 @@ class Lancamentos extends Component {
                         <div className="divdiv">
                             <img className="logo" src="https://fontmeme.com/permalink/191012/733b6dd4db71e3c5c747ba52909fde7d.png" alt="netflix-font" />
                             <nav className="cabecalhoPrincipal-nav">
+                                <a>Plataformas</a>
+                                <a>Categorias</a>
+                                <a>Cadastrar lançamentos</a>
+                                <a>Usuários</a>
                                 <a href="login.html" >Logout</a>
                             </nav>
                         </div>
