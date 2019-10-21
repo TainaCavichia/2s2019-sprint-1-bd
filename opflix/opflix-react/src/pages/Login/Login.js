@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 import '../../assets/css/login.css';
+import logo from '../../assets/img/download.jpg'
 
 class Login extends Component {
 
@@ -48,7 +49,7 @@ class Login extends Component {
                     <section id="conteudoPrincipal-eventos">
                         <div className="container">
                             <div className="imagem-Iti">
-                                <img className="iti" src="img/e08eff592970703.png" />
+                                <img className="iti" src={logo} />
                             </div>
                             <div className="conteudoPrincipal-funcionalidades">
                                 <img className="opflix" src="https://fontmeme.com/permalink/191012/733b6dd4db71e3c5c747ba52909fde7d.png" />

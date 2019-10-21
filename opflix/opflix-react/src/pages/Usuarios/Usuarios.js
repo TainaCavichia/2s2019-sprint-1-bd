@@ -14,7 +14,11 @@ class Usuarios extends Component {
     }
 
     componentDidMount() {
-        Axios.get('http://localhost:5000/api/usuarios')
+        Axios.get('http://localhost:5000/api/usuarios', {
+            headers: {
+                Authorization: 'Bearer ' + localStorage.getItem('usuario-opflix')
+            }
+        })
             .then(data => {
                 this.setState({ lista: data.data });
             })
@@ -55,7 +59,23 @@ class Usuarios extends Component {
                     </tr>
                 </thead>
         
-                <tbody id="tabela-lista-corpo"></tbody>
+                <tbody id="tabela-lista-corpo">
+            {
+                this.state.lista.map(element =>{
+                    return (
+                        <tr>
+                            <td>{element.idUsuario}</td>
+                            <td>{element.nome}</td>
+                            <td>{element.email}</td>
+                            <td>{element.dataNascimento}</td>
+                            <td>{element.cpf}</td>
+                            <td>{element.telefone}</td>
+                            <td>{element.idTipoUsuarioNavigation.tipoUsuario}</td>
+                        </tr>
+                    )
+                })
+            }
+                </tbody>
             </table>
         </div>
     </section>

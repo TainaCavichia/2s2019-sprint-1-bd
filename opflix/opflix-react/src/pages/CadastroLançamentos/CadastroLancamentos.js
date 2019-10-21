@@ -2,51 +2,69 @@ import React, { Component } from 'react';
 import Footer from '../../components/Footer/Footer';
 import Titulo from '../../components/Titulo/Titulo';
 import '../../assets/css/categorias.css';
+import Axios from 'axios';
 
 class CadastroLancamentos extends Component {
     constructor() {
         super();
         this.state = {
-            lista: []
-            , titulo=""
-            , sinopse=""
-            , tempoDuracao=""
-            , dataLancamento=""
-            , descricao=""
-            , idTipoNavigation=""
-            , idCategoriaNavigation=""
-            , idPlataformaNavigation="",
+            titulo: '',
+            sinopse: '',
+            tempoDuracao: '',
+            dataLancamento: '',
+            descricao: '',
+            tipoSelecionado: '',
             categoria: [],
-            categoriaSelecionada="",
+            categoriaSelecionada: '',
             plataforma: [],
-            plataformaSelecionada=""
+            plataformaSelecionada: ''
         };
     }
 
-    listaAtualizada = () => {
-        fetch('http://localhost:5000/api/lancamentos', {
+    componentDidMount() {
+        Axios.get('http://localhost:5000/api/categorias', {
             headers: {
-
-                'Authorization': 'Bearer ' + localStorage.getItem('usuario-opflix')
-            },
+                Authorization: 'Bearer ' + localStorage.getItem('usuario-opflix')
+            }
         })
-            .then(response => response.json())
-            .then(data => this.setState({ lista: data }))
+            .then(data => {
+                this.setState({ categoria: data.data });
+            })
+            .catch(erro => {
+                console.log(erro);
+            });
+        Axios.get('http://localhost:5000/api/plataformas', {
+            headers: {
+                Authorization: 'Bearer ' + localStorage.getItem('usuario-opflix')
+            }
+        })
+            .then(data => {
+                this.setState({ plataforma: data.data });
+            })
+            .catch(erro => {
+                console.log(erro);
+            });
     }
 
     adicionaItem = (event) => {
         event.preventDefault();
-        console.log(this.state.li);
-        Axios.post('http://localhost:5000/api/usuarios', {
+        Axios.post('http://localhost:5000/api/lancamentos', {
             titulo: this.state.titulo,
             sinopse: this.state.sinopse,
             tempoDuracao: this.state.tempoDuracao,
             dataLancamento: this.state.dataLancamento,
             descricao: this.state.descricao,
-            idTipoNavigation: this.state.idTipoNavigation,
-            idCategoriaNavigation: this.state.idCategoriaNavigation,
-            idPlataformaNavigation: this.state.idPlataformaNavigation
-        })
+            idTipo: this.state.tipoSelecionado,
+            idCategoria: this.state.categoriaSelecionada,
+            idPlataforma: this.state.plataformaSelecionada
+        }, {
+                headers: {
+                    'Content-Type' : 'application/json',
+                    'Accept' : 'application/json',
+                    Authorization: 'Bearer ' + localStorage.getItem('usuario-opflix')
+                }
+            }
+        )
             .then(response => { console.log(response) })
             .catch(erro => {
                 this.setState({ erro: "Não foi possível cadastrar" });
@@ -54,16 +72,37 @@ class CadastroLancamentos extends Component {
             });
     }
 
-    atualizaInput = (event) => {
-        this.setState({ titulo: event.target.value },
-            { sinopse: event.target.value },
-            { tempoDuracao: event.target.value },
-            { dataLancamento: event.target.value },
-            { descricao: event.target.value },
-            { idTipoNavigation: event.target.value },
-            { idCategoriaNavigation: event.target.value },
-            { idPlataformaNavigation: event.target.value }
-        )
+    atualizarTitulo = (event) => {
+        this.setState({ titulo: event.target.value })
+        console.log(this.state);
+    }
+    atualizarSinopse = (event) => {
+        this.setState({ sinopse: event.target.value })
+        console.log(this.state);
+    }
+    atualizarTempoDuração = (event) => {
+        this.setState({ tempoDuracao: event.target.value })
+        console.log(this.state);
+    }
+    atualizarDataLancamento = (event) => {
+        this.setState({ dataLancamento: event.target.value })
+        console.log(this.state);
+    }
+    atualizarDescricao = (event) => {
+        this.setState({ descricao: event.target.value })
+        console.log(this.state);
+    }
+    atualizarTipo = (event) => {
+        this.setState({ tipoSelecionado: event.target.value })
+        console.log(this.state);
+    }
+    atualizarCategoria = (event) => {
+        this.setState({ categoriaSelecionada: event.target.value })
+        console.log(this.state)
+    }
+    atualizarPlataforma = (event) => {
+        this.setState({ plataformaSelecionada: event.target.value })
+        console.log(event.target.value)
     }
 
     render() {
@@ -89,12 +128,12 @@ class CadastroLancamentos extends Component {
                     <Titulo titulo="c a d a s t r a r  l a n ç a  m e n t o" />
                     <div className="container">
 
-                        <input type="text" id="evento__titulo" placeholder="título" value={this.state.titulo} onChange={this.atualizaInput} />
-                        <input type="text" id="evento__localizacao" placeholder="sinopse" value={this.state.sinopse} onChange={this.atualizaInput} />
-                        <input type="text" id="evento__data" placeholder="duração" value={this.state.tempoDuracao} onChange={this.atualizaInput} />
-                        <input type="text" id="evento__data" placeholder="dd/MM/yyyy" value={this.state.dataLancamento} onChange={this.atualizaInput} />
-                        <textarea rows="3" cols="50" placeholder="descrição do evento" value={this.state.descricao} onChange={this.atualizaInput} id="evento__descricao"></textarea>
-                        <select onInput={this.atualizaInput}>
+                        <input type="text" id="evento__titulo" placeholder="título" onInput={this.atualizarTitulo} />
+                        <input type="text" id="evento__localizacao" placeholder="sinopse" onInput={this.atualizarSinopse} />
+                        <input type="text" id="evento__data" placeholder="duração" onInput={this.atualizarTempoDuração} />
+                        <input type="text" id="evento__data" placeholder="dd/MM/yyyy" onInput={this.atualizarDataLancamento} />
+                        <input type="text" placeholder="descrição do evento" onInput={this.atualizarDescricao} id="evento__descricao" />
+                        <select onInput={this.atualizarTipo} value={this.state.tipoSelecionado}>
                             //Tipo não tem listar, escreve na mão
                             <option selected>Tipo</option>
                             <option value='1'>Série</option>
@@ -102,15 +141,15 @@ class CadastroLancamentos extends Component {
                             <option value='3'>Anime</option>
                             <option value='4'>Desenho</option>
                         </select>
-                        <select onInput={this.atualizaInput} value={this.state.categoriaSelecionada}>
-                            <option selected>Categoria...</option>
+                        <select onInput={this.atualizarCategoria} value={this.state.categoriaSelecionada}>
+                            <option selected>Categoria</option>
                             {this.state.categoria.map(element => {
                                 return (
                                     <option value={element.idCategoria}>{element.nome}</option>
                                 )
                             })}
                         </select>
-                        <select onChange={this.atualizaInput} value={this.state.plataformaSelecionada}>
+                        <select onChange={this.atualizarPlataforma} value={this.state.plataformaSelecionada}>
                             <option selected>Plataforma</option>
 
                             {this.state.plataforma.map(element => {
@@ -121,7 +160,7 @@ class CadastroLancamentos extends Component {
                         </select>
 
                     </div>
-                    <button className="conteudoPrincipal-btn conteudoPrincipal-btn-cadastro" onClick={this.adcionaItem}>Cadastrar</button>
+                    <button className="conteudoPrincipal-btn conteudoPrincipal-btn-cadastro" onClick={this.adicionaItem}>Cadastrar</button>
                 </div>
                 <Footer />
             </div>

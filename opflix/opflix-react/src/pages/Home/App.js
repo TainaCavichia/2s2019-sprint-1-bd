@@ -2,6 +2,7 @@ import React from 'react';
 import Footer from '../../components/Footer/Footer';
 import Titulo from '../../components/Titulo/Titulo'
 import '../../assets/css/stylesheet.css';
+import {Link} from 'react-router-dom';
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
                 <nav className="cabecalhoPrincipal-nav">
                     <a>Funcionalidades</a>
                     <a>Contato</a>
-                    <a href="login.html" >Login</a>
+                    <Link className="cabecalhoPrincipal-nav-login" to="/login">Login</Link>
                 </nav>
             </div>
             <img className="banner" src="img/jokerposter.jpg"/>
