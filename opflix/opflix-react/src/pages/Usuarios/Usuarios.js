@@ -3,6 +3,7 @@ import Footer from '../../components/Footer/Footer';
 import Titulo from '../../components/Titulo/Titulo'
 import Axios from 'axios';
 import '../../assets/css/categorias.css';
+import {Link} from 'react-router-dom';
 
 //listar usuários do bd
 class Usuarios extends Component {
@@ -36,7 +37,7 @@ class Usuarios extends Component {
                                 <img className="logo" src="https://fontmeme.com/permalink/191012/f031c30da3e8b41e40dc9ad5f3a3559e.png" />
                             </div>
                             <div className="admin">
-                                <li>Cadastrar usuários</li>
+                            <Link to="/criarcontaadm">Cadastrar usuários</Link>
                             </div>
                         </nav>
                     </div>

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Footer from '../../components/Footer/Footer';
 import Titulo from '../../components/Titulo/Titulo'
 import '../../assets/css/categorias.css';
+import {Link} from 'react-router-dom';
 
 class Plataformas extends Component{
     constructor(){
@@ -56,11 +57,11 @@ class Plataformas extends Component{
             <img className="logo" src="https://fontmeme.com/permalink/191012/f031c30da3e8b41e40dc9ad5f3a3559e.png"/>
         </div>
         <div className="admin">
-            <li>Plataformas</li>
-            <li>Categorias</li>
-            <li>Lançamentos</li>
-            <li>Usuários</li>
-            <li>Logout</li>
+            <Link to="/plataformas">Plataformas</Link>
+            <Link to="/categorias">Categorias</Link>
+            <Link to="/lancamentosadmin">Lançamentos</Link>
+            <Link to="/usuarios">Usuários</Link>
+            <Link to="/">Logout</Link>
         </div>
         </nav>
     </div>

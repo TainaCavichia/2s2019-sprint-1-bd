@@ -19,3 +19,7 @@ main{
     max-width: 1360px;
     width: 70%;
 }
+.item {    
+    text-decoration: none;
+    color: white;
+}

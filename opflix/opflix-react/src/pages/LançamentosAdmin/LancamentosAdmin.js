@@ -3,6 +3,7 @@ import Footer from '../../components/Footer/Footer';
 import Titulo from '../../components/Titulo/Titulo'
 import Axios from 'axios';
 import '../../assets/css/stylesheet.css';
+import {Link} from 'react-router-dom';
 
 class Lancamentos extends Component {
     constructor() {
@@ -34,11 +35,11 @@ class Lancamentos extends Component {
                         <div className="divdiv">
                             <img className="logo" src="https://fontmeme.com/permalink/191012/733b6dd4db71e3c5c747ba52909fde7d.png" alt="netflix-font" />
                             <nav className="cabecalhoPrincipal-nav">
-                                <a>Plataformas</a>
-                                <a>Categorias</a>
-                                <a>Cadastrar lançamentos</a>
-                                <a>Usuários</a>
-                                <a href="login.html" >Logout</a>
+                            <Link to="/plataformas">Plataformas</Link>
+                            <Link to="/categorias">Categorias</Link>
+                            <Link to="/cadastrolancamentos">Cadastrar Lançamentos</Link>
+                            <Link to="/usuarios">Usuários</Link>
+                            <Link to="/">Logout</Link>
                             </nav>
                         </div>
                         <img className="banner" src="img/jokerposter.jpg" />

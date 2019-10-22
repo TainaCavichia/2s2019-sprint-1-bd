@@ -13,28 +13,59 @@ import CriarConta from './pages/CriarContaCom/CriarConta';
 import CriarContaAdm from './pages/CriarContaAdm/CriarContaAdm';
 import * as serviceWorker from './serviceWorker';
 import {Route, Link, BrowserRouter as Router, Switch, Redirect} from 'react-router-dom';
+import { parseJwt } from '../src/services/auth';
 
-const RotaPrivada = ({component: Component}) =>(
+const RotaPrivada = ({ component: Component}) => (
     <Route 
-    render = {props => 
-        localStorage.getItem("usuario-opflix") !== null ? 
-            <Component {...props}/> : <Redirect to={{ pathname: "/login", state: {from: props.location} }}/>
-            }
-    >        
-    </Route>
-)
+        render={
+            props =>
+                parseJwt().Permissao === '2' ? (
+                    <Lancamentos {...props} />
+                ) : (
+                    <LancametosAdmin {...props} />
+                )
+        }
+    />
+);
+
+const PermissaoADM = ({ component: Component }) => (
+    <Route
+        render={
+            props =>
+            localStorage.getItem("usuario-opflix") !== null ? (
+                parseJwt().Permissao === "1" ? (
+                    <Component {...props} />
+                ) : (
+                    //fazer pagina nao encontrado
+                        // <NaoEncontrado/>
+                        <Redirect 
+                        to={{ pathname: "/login", state: {from: props.location}}}
+                    />
+                    )
+            )
+                    : (
+                        <Redirect 
+                            to={{ pathname: "/login", state: {from: props.location}}}
+                        />
+                    )
+        }
+    />
+);
+
+
+
 const routing = (
     <Router>
         <div>
             <Switch>
             <Route exact path='/' component={App}/>
-            <Route path='/lancamentos' component={Lancamentos}/>
-            <RotaPrivada path='/lancamentosadmin' component={LancametosAdmin}/>
-            <RotaPrivada path='/categorias' component={Categorias}/>
-            <RotaPrivada path='/plataformas' component={Plataformas}/>
-            <RotaPrivada path='/cadastrolancamentos' component={CadastroLancamentos}/>
-            <RotaPrivada path='/criarcontaadm' component={CriarContaAdm}/>
-            <RotaPrivada path='/usuarios' component={Usuarios}/>
+            <RotaPrivada path='/lancamentos' component={Lancamentos}/>
+            <PermissaoADM path='/lancamentosadmin' component={LancametosAdmin}/>
+            <PermissaoADM  path='/categorias' component={Categorias}/>
+            <PermissaoADM  path='/plataformas' component={Plataformas}/>
+            <PermissaoADM  path='/cadastrolancamentos' component={CadastroLancamentos}/>
+            <PermissaoADM  path='/criarcontaadm' component={CriarContaAdm}/>
+            <PermissaoADM  path='/usuarios' component={Usuarios}/>
             <Route path='/criarconta' component={CriarConta}/>
             <Route path='/login' component={Login}/>
             </Switch>

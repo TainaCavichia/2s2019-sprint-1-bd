@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 import '../../assets/css/login.css';
-import logo from '../../assets/img/download.jpg'
+import logo from '../../assets/img/download.jpg';
+import {Link} from 'react-router-dom';
 
 class Login extends Component {
 
@@ -73,6 +74,7 @@ class Login extends Component {
                                         <button className="btn btn__login" id="btn__login">
                                             Login
                                 </button>
+                                <Link to="/criarconta">Criar conta!</Link>
                                     </div>
                                 </form>
                             </div>

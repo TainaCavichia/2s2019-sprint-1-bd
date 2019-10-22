@@ -3,6 +3,8 @@ import Footer from '../../components/Footer/Footer';
 import Titulo from '../../components/Titulo/Titulo';
 import '../../assets/css/categorias.css';
 import Axios from 'axios';
+import logo from '../../assets/img/logobranco.png'
+import {Link} from 'react-router-dom';
 
 class CadastroLancamentos extends Component {
     constructor() {
@@ -65,7 +67,10 @@ class CadastroLancamentos extends Component {
                 }
             }
         )
-            .then(response => { console.log(response) })
+            .then(response =>
+                 { console.log(response) 
+                    this.props.history.push('/lancamentos')
+                })
             .catch(erro => {
                 this.setState({ erro: "Não foi possível cadastrar" });
                 console.log(erro);
@@ -111,16 +116,16 @@ class CadastroLancamentos extends Component {
                 <div className="container" id="conteudoPrincipal-cadastro">
                     <header>
                         <div >
-                            <nav className="container">
+                            <nav className="bla">
                                 <div className="conteudo-imagem">
-                                    <img className="logo" src="https://fontmeme.com/permalink/191012/f031c30da3e8b41e40dc9ad5f3a3559e.png" />
+                                    <img className="logo" src={logo} />
                                 </div>
                                 <div className="admin">
-                                    <li>Plataformas</li>
-                                    <li>Categorias</li>
-                                    <li>Lançamentos</li>
-                                    <li>Usuários</li>
-                                    <li>Logout</li>
+                                    <Link className="item" to="/plataformas">Plataformas</Link>
+                                    <Link className="item" to="/categorias">Categorias</Link>
+                                    <Link className="item" to="/lancamentosadmin">Lançamentos</Link>
+                                    <Link className="item" to="/usuarios">Usuários</Link>
+                                    <Link className="item" to="/">Logout</Link>
                                 </div>
                             </nav>
                         </div>
@@ -134,7 +139,6 @@ class CadastroLancamentos extends Component {
                         <input type="text" id="evento__data" placeholder="dd/MM/yyyy" onInput={this.atualizarDataLancamento} />
                         <input type="text" placeholder="descrição do evento" onInput={this.atualizarDescricao} id="evento__descricao" />
                         <select onInput={this.atualizarTipo} value={this.state.tipoSelecionado}>
-                            //Tipo não tem listar, escreve na mão
                             <option selected>Tipo</option>
                             <option value='1'>Série</option>
                             <option value='2'>Filme</option>
