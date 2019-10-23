@@ -27,7 +27,7 @@ namespace Senai.OpFlix.WebApi.Controllers
         /// Listar lançamentos
         /// </summary>
         /// <returns> lista de lançamentos </returns>
-        [Authorize(Roles = "Administrador")]
+        [Authorize]
         [HttpGet]
         public IActionResult Listar()
         {

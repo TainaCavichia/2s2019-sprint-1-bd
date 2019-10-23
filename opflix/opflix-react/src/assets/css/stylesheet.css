@@ -9,26 +9,66 @@ html {
     scroll-behavior: smooth;
   }
 .logo{
-    width: 10%;
+    width: 55%;
 }
 .divdiv{
     display: flex;
     justify-content: space-between;
+    background-color:rgba(0, 0, 0, 0.521);
+    position: fixed;
+    width: 100%;
+    align-items: center;
 }
 .banner{
     width: 100%;
     height: 500px;
 }
-.cabecalhoPrincipal-nav{
+.titulo{
+    padding-top: 12%;
+    text-align: center;
+    font-size: 4vh;
+    color: #8D0D0D;
+}
+.menuzinho{
     display: flex;
+    justify-content: space-around;
+    font-size: 2.8vh;
+    width: 40%;
+}
+.menu{
+    display: flex;
+    justify-content: space-around;
+    font-size: 2.5vh;
+    width: 50%;
+}
+.men{
+    display: flex;
+    justify-content: space-between;
+    font-size: 2.5vh;
+}
+.lolo{
+    background-color: #8D0D0D;
+    padding: 0 3% 0 3%;
+    font-size: 2.5vh;
+    color: white;
+}
+.peppa{
+    padding: 0 3% 0 3%;
+    font-size: 2.5vh;
+    color: white;
 }
 body{
     background-color: black;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
 }
+.bolinhas{
+    padding: 7% 0 0 0;
+    width: 20%;
+    height: 20%;
+}
 h2{
-    padding: 8% 0 5% 0;
+    padding: 12% 0 6% 0;
     font-size: 5vh;
     text-align: center;
     color: #8D0D0D;
@@ -55,19 +95,17 @@ main{
 .redes-sociais{
     width: 5%;
     height: 5%;
-    padding-top: 3%;
+    padding: 3% 0 10% 0 ;
 }
 .conteudoimg{
     display: flex;
     justify-content: space-around;
 }
-.conteudo-contato-endereco{
+.contatinhos{
     text-align: center;
-    padding: 5%;
     font-weight: bold;
 }
 footer{
     padding: 3vh;
-    text-align: center;
     background-color: #8D0D0D;
 }

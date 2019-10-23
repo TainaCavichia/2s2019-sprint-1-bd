@@ -4,6 +4,11 @@ import Titulo from '../../components/Titulo/Titulo'
 import Axios from 'axios';
 import '../../assets/css/stylesheet.css';
 import jokerposter from '../../assets/img/jokerposter.jpg'
+import bola1 from '../../assets/img/png.png'
+import bola2 from '../../assets/img/aa.png'
+import bola3 from '../../assets/img/beyonce.png'
+import bola4 from '../../assets/img/stranger.png'
+import bola5 from '../../assets/img/mikey.png'
 import icon1 from '../../assets/img/twitter-logo-1.png'
 import icon2 from '../../assets/img/instagram-logo.png'
 import icon3 from '../../assets/img/facebook-logo-2-1.png'
@@ -35,11 +40,13 @@ class Lancamentos extends Component {
         return (
             <div>
                 <header className="cabecalhoPrincipal">
-                    <div className="container">
+                    <div className="aaa">
                         <div className="divdiv">
-                            <img className="logo" src="https://fontmeme.com/permalink/191012/733b6dd4db71e3c5c747ba52909fde7d.png" alt="netflix-font" />
-                            <nav className="cabecalhoPrincipal-nav">
-                            <Link className="cabecalhoPrincipal-nav-login" to="/">Logout</Link>
+                            <div className="opop"> 
+                                <img className="logo" src="https://fontmeme.com/permalink/191012/733b6dd4db71e3c5c747ba52909fde7d.png" alt="netflix-font" />
+                            </div>
+                            <nav className="men">
+                                <Link className="peppa" to="/">Logout</Link>
                             </nav>
                         </div>
                         <img className="banner" src={jokerposter} />
@@ -47,21 +54,20 @@ class Lancamentos extends Component {
                 </header>
                 <section id="imagens_bolinhas">
                     <div>
-                        <img src="" alt="rei leão" />
-                        <img src="" alt="homem de ferro" />
-                        <img src="" alt="beyonce" />
-                        <img src="" alt="stranger things" />
-                        <img src="" alt="mikey mouse" />
+                        <img className="bolinhas" src={bola1} alt="rei leão" />
+                        <img className="bolinhas" src={bola2} alt="homem de ferro" />
+                        <img className="bolinhas" src={bola3} alt="beyonce" />
+                        <img className="bolinhas" src={bola4} alt="stranger things" />
+                        <img className="bolinhas" src={bola5} alt="mikey mouse" />
                     </div>
                 </section>
-                <Titulo titulo='l a n ç a m e n t o s' />
+                <Titulo className="titulo" titulo='l a n ç a m e n t o s' />
                 {
                    this.state.lista.map(element => {
                     return(
                         <div id="infos">
                             <ul>
                                 <li>Título: {element.titulo}</li>
-                                
                                 <li>Tipo da mídia: {(element.idTipoNavigation === undefined) ? '' : element.idTipoNavigation.nome}</li>
                                 <li>Sinopse: {element.sinopse}</li>
                                 <li>Tempo de duração: {element.tempoDuracao}</li>

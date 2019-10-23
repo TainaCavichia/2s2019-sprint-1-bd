@@ -42,6 +42,7 @@ namespace Senai.OpFlix.WebApi.Controllers
 
                 var claims = new[]
                 {
+                    new Claim("Permissao", Convert.ToString(Usuario.IdTipoUsuario)),
 
                     new Claim(JwtRegisteredClaimNames.Email, Usuario.Email),
 

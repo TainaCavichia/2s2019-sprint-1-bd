@@ -48,13 +48,13 @@ class Login extends Component {
             <div>
                 <main className="conteudoPrincipal">
                     <section id="conteudoPrincipal-eventos">
-                        <div className="container">
+                        <div className="a">
                             <div className="imagem-Iti">
                                 <img className="iti" src={logo} />
                             </div>
                             <div className="conteudoPrincipal-funcionalidades">
-                                <img className="opflix" src="https://fontmeme.com/permalink/191012/733b6dd4db71e3c5c747ba52909fde7d.png" />
                                 <form onSubmit={this.efetuarLogin}>
+                                <img className="opflix" src="https://fontmeme.com/permalink/191012/733b6dd4db71e3c5c747ba52909fde7d.png" />
                                     <div className="item">
                                         <input className="input__login"
                                             placeholder="username"

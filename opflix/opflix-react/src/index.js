@@ -36,8 +36,6 @@ const PermissaoADM = ({ component: Component }) => (
                 parseJwt().Permissao === "1" ? (
                     <Component {...props} />
                 ) : (
-                    //fazer pagina nao encontrado
-                        // <NaoEncontrado/>
                         <Redirect 
                         to={{ pathname: "/login", state: {from: props.location}}}
                     />
@@ -51,8 +49,6 @@ const PermissaoADM = ({ component: Component }) => (
         }
     />
 );
-
-
 
 const routing = (
     <Router>
