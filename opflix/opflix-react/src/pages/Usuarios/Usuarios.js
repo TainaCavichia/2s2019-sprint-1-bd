@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Footer from '../../components/Footer/Footer';
 import Titulo from '../../components/Titulo/Titulo'
 import Axios from 'axios';
-import '../../assets/css/categorias.css';
+import '../../assets/css/stylesheet.css';
 import {Link} from 'react-router-dom';
 
 //listar usuários do bd

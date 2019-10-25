@@ -66,23 +66,25 @@ class Lancamentos extends Component {
                     </div>
                 </section>
                 <Titulo titulo='l a n ç a m e n t o s' />
-                {
-                    this.state.lista.map(element => {
-                        return(
-                            <div id="infos">
-                                <ul>
-                                    <li>Título: {element.titulo}</li>
-                                    <li>Tipo da mídia: {(element.idTipoNavigation === undefined) ? '' : element.idTipoNavigation.nome}</li>
-                                    <li>Sinopse: {element.sinopse}</li>
-                                    <li>Tempo de duração: {element.tempoDuracao}</li>
-                                    <li>Categoria: {(element.idCategoriaNavigation === undefined) ? '' : element.idCategoriaNavigation.nome}</li>
-                                    <li>Data de lançamento: {element.dataLancamento}</li>
-                                    <li>Plataforma: {(element.idPlataformaNavigation === undefined) ? '' : element.idPlataformaNavigation.nome}</li>
-                                    <li>Descrição: {element.descricao}</li>
-                                </ul>
-                            </div>
-                        );
-                    })}
+                <div id='divinha_lancamentos'>
+                    {
+                        this.state.lista.map(element => {
+                            return(
+                                <div id="infos">
+                                    <ul>
+                                        <li>Título: {element.titulo}</li>
+                                        <li>Tipo da mídia: {(element.idTipoNavigation === undefined) ? '' : element.idTipoNavigation.nome}</li>
+                                        <li>Sinopse: {element.sinopse}</li>
+                                        <li>Tempo de duração: {element.tempoDuracao}</li>
+                                        <li>Categoria: {(element.idCategoriaNavigation === undefined) ? '' : element.idCategoriaNavigation.nome}</li>
+                                        <li>Data de lançamento: {element.dataLancamento}</li>
+                                        <li>Plataforma: {(element.idPlataformaNavigation === undefined) ? '' : element.idPlataformaNavigation.nome}</li>
+                                        <li>Descrição: {element.descricao}</li>
+                                    </ul>
+                                </div>
+                            );
+                        })}
+                </div>
                 <section id="conteudoPrincipal-contato">
                     <h2 id="conteudoPrincipal-contato-titulo">c o n t a t o s</h2>
                     <div >
@@ -91,9 +93,6 @@ class Lancamentos extends Component {
                             <img className="redes-sociais" src={icon2} />
                             <img className="redes-sociais" src={icon3} />
                         </div>
-                        <div className="conteudo-contato-endereco">
-                            Alameda Barão de Limeira, 539 São Paulo - SP
-            </div>
                     </div>
                 </section>
                 <Footer />

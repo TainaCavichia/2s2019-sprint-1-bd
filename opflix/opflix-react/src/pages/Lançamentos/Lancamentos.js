@@ -62,6 +62,8 @@ class Lancamentos extends Component {
                     </div>
                 </section>
                 <Titulo className="titulo" titulo='l a n ç a m e n t o s' />
+                <div id='divinha_lancamentos'>
+
                 {
                    this.state.lista.map(element => {
                     return(
@@ -78,8 +80,9 @@ class Lancamentos extends Component {
                             </ul>
                         </div>
                     );
-                    }) 
-                }
+                }) 
+            }
+            </div>
                 
                 <section id="conteudoPrincipal-contato">
                     <h2 id="conteudoPrincipal-contato-titulo">c o n t a t o s</h2>
@@ -89,9 +92,7 @@ class Lancamentos extends Component {
                             <img className="redes-sociais" src={icon2} />
                             <img className="redes-sociais" src={icon3} />
                         </div>
-                        <div className="conteudo-contato-endereco">
-                            Alameda Barão de Limeira, 539 São Paulo - SP
-            </div>
+                    
                     </div>
                 </section>
                 <Footer />

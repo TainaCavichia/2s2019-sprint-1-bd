@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Footer from '../../components/Footer/Footer';
 import Titulo from '../../components/Titulo/Titulo'
-import '../../assets/css/categorias.css';
+import '../../assets/css/stylesheet.css';
 import Axios from 'axios';
 import {Link} from 'react-router-dom';
 
@@ -75,26 +75,26 @@ class CriarConta extends Component{
 
 render(){
     return(
-        <div>
+        <div id='divona_cadastro'>
             <header>
     <div >
-        <nav className="container">
-        <div className="conteudo-imagem">
-            <img className="logo" src="https://fontmeme.com/permalink/191012/f031c30da3e8b41e40dc9ad5f3a3559e.png"/>
-        </div>
-        <div className="menu">
-        <Link to="/">Home</Link>
-        <Link to="/login">Login</Link>
-        </div>
+        <nav className="container_categorias">
+            <div className="conteudo-imagem">
+                <img className="logo" src="https://fontmeme.com/permalink/191012/f031c30da3e8b41e40dc9ad5f3a3559e.png"/>
+            </div>
+            <div className="menu">
+                <Link to="/" className='link_nav_cat'>Home</Link>
+                <Link to="/login" className='link_nav_cat'>Login</Link>
+            </div>
         </nav>
     </div>
 </header>
 <body>
     <main>
         <section>
-            <h2>c r i a r  c o n t a</h2>
+            <h2>c r i a r c o n t a</h2>
         <div>
-            <form>
+            <form id='form_cadastro'>
                 <div>
                     <input className="input_usuario"
                     onInput={this.atualizarNome}
@@ -110,7 +110,7 @@ render(){
                     type="email"/> 
                 </div>
                 <div>
-                    <input className="input_usuario"
+                    <input className="input_usuario" className='data_cadastro'
                     onInput={this.atualizarDataNascimento}
                     placeholder="nascimento"
                     type="date"
@@ -146,7 +146,10 @@ render(){
     
 </main>
 </body>
-<Footer/>
+<br/>
+<br/>
+<br/>
+<Footer className='footer_cadastro'/>
         </div>
     );
 }

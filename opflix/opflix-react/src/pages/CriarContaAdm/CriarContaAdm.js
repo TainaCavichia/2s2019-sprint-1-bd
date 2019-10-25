@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Footer from '../../components/Footer/Footer';
 import Titulo from '../../components/Titulo/Titulo'
-import '../../assets/css/categorias.css';
+import '../../assets/css/stylesheet.css';
 import Axios from 'axios';
 import {Link} from 'react-router-dom';
 

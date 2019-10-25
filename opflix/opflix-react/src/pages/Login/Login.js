@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
-import '../../assets/css/login.css';
-import logo from '../../assets/img/download.jpg';
-import {Link} from 'react-router-dom';
+import '../../assets/css/stylesheet.css';
+import logo from '../../assets/img/iti.jpg';
+import { Link } from 'react-router-dom';
 
 class Login extends Component {
 
@@ -52,16 +52,15 @@ class Login extends Component {
                             <div className="imagem-Iti">
                                 <img className="iti" src={logo} />
                             </div>
-                            <div className="conteudoPrincipal-funcionalidades">
+                            <div className="formularioo">
                                 <form onSubmit={this.efetuarLogin}>
-                                <img className="opflix" src="https://fontmeme.com/permalink/191012/733b6dd4db71e3c5c747ba52909fde7d.png" />
+                                    <img className="opflix" src="https://fontmeme.com/permalink/191012/733b6dd4db71e3c5c747ba52909fde7d.png" />
                                     <div className="item">
                                         <input className="input__login"
                                             placeholder="username"
                                             onInput={this.atualizaEstadoEmail}
                                             type="text"
-                                            name="username"
-                                            type="text" />
+                                            name="username" />
                                     </div>
                                     <div className="item">
                                         <input className="input__login"
@@ -71,11 +70,11 @@ class Login extends Component {
                                             name="password" />
                                     </div>
                                     <div className="item">
-                                        <button className="btn btn__login" id="btn__login">
+                                        <button className="btnbtn__login" id="btn__login">
                                             Login
                                 </button>
-                                <Link to="/criarconta">Criar conta!</Link>
                                     </div>
+                                        <Link to="/criarconta" className='criar_conta'>Criar conta!</Link>
                                 </form>
                             </div>
 

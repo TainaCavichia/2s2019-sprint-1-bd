@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Footer from '../../components/Footer/Footer';
 import Titulo from '../../components/Titulo/Titulo'
-import '../../assets/css/categorias.css';
+import '../../assets/css/stylesheet.css';
 import {Link} from 'react-router-dom';
 
 class Plataformas extends Component{
@@ -57,11 +57,11 @@ class Plataformas extends Component{
             <img className="logo" src="https://fontmeme.com/permalink/191012/f031c30da3e8b41e40dc9ad5f3a3559e.png"/>
         </div>
         <div className="admin">
-            <Link to="/plataformas">Plataformas</Link>
-            <Link to="/categorias">Categorias</Link>
-            <Link to="/lancamentosadmin">Lançamentos</Link>
-            <Link to="/usuarios">Usuários</Link>
-            <Link to="/">Logout</Link>
+            <Link className="abacaxi" to="/plataformas">Plataformas</Link>
+            <Link className="abacaxi" to="/categorias">Categorias</Link>
+            <Link className="abacaxi" to="/lancamentosadmin">Lançamentos</Link>
+            <Link className="abacaxi" to="/usuarios">Usuários</Link>
+            <Link className="abacaxi" to="/">Logout</Link>
         </div>
         </nav>
     </div>
