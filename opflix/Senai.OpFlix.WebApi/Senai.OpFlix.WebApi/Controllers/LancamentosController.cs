@@ -140,6 +140,18 @@ namespace Senai.OpFlix.WebApi.Controllers
         }
 
         /// <summary>
+        /// Listar lançamentos filtrando pela categoria 
+        /// </summary>
+        /// <param name="categoria"></param>
+        /// <returns> lista de lançamentos </returns>
+        [Authorize(Roles = "Administrador")]
+        [HttpGet("filtrarporcategoria/{categoria}")]
+        public IActionResult FiltarPorCategoria(string categoria)
+        {
+            return Ok(LancamentoRepository.FiltrarPorCategoria(categoria));
+        }
+
+        /// <summary>
         /// Listar lançamentos filtrando pela data de lançamento 
         /// </summary>
         /// <param name="plataforma"></param>

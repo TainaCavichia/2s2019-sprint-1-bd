@@ -47,6 +47,13 @@ namespace Senai.OpFlix.WebApi.Interfaces
         List<Lancamentos> FiltrarPorPlataforma(string plataforma);
 
         /// <summary>
+        /// Listar lançamentos filtrando por categoria 
+        /// </summary>
+        /// <param name="categoria"></param>
+        /// <returns> lista de lançamentos </returns>
+        List<Lancamentos> FiltrarPorCategoria(string categoria);
+
+        /// <summary>
         /// Listar lançamentos filtrando por data de lançamento
         /// </summary>
         /// <param name="data"></param>
