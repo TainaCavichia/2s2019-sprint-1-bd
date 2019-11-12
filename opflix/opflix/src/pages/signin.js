@@ -48,7 +48,7 @@ class SignIn extends Component {
             <View style= {styles.background}>
                 <Image source={require('../assets/img/logovermelho.png')}/>
                 <TextInput style= {styles.white} placeholder='email' placeholderTextColor="white" onChangeText={email => this.setState({ email })}></TextInput>
-                <TextInput style= {styles.white} placeholder='senha' placeholderTextColor="white" onChangeText={senha => this.setState({ senha })}></TextInput>
+                <TextInput style= {styles.white} placeholder='senha' secureTextEntry={true} placeholderTextColor="white" onChangeText={senha => this.setState({ senha })}></TextInput>
                 <TouchableOpacity onPress={this._realizarLogin} style={styles.button}>
                     <Text style= {styles.letraButton} >Login</Text>
                 </TouchableOpacity>

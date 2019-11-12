@@ -28,8 +28,8 @@ const AuthStack = createStackNavigator({
       tabBarOptions:{
         showIcon: true,
         showLabel: false,
-        inactiveBackgroundColor: 'blue',
-        activeBackgroundColor:'darkblue',
+        inactiveBackgroundColor: '#131313',
+        activeBackgroundColor:'#670309',
         style: {
           width: '100%',
           height: 50,
