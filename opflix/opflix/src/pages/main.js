@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Image, StyleSheet, AsyncStorage, SafeAreaView, Dimensions } from 'react-native';
+import { Text, View, Image, StyleSheet, AsyncStorage, SafeAreaView, Dimensions, TouchableOpacity } from 'react-native';
 import { FlatList, ScrollView } from 'react-native-gesture-handler';
 
 const { height } = Dimensions.get('window');
@@ -12,13 +12,29 @@ class Main extends Component {
             screenHeight: 0,
         };
     }
-    onContentSizeChange = ( contentWidth, contentHeight ) => {
-        this.setState({screenHeight: contentHeight});
+
+    static navigationOptions = {
+        tabBarIcon: () => (
+          <Image
+            source={require('../assets/img/download.png')}
+            style={{ width: 25, height: 25, tintColor: '#fff' }}
+          />
+        )
+      }
+
+    onContentSizeChange = (contentWidth, contentHeight) => {
+        this.setState({ screenHeight: contentHeight });
     }
+
     componentDidMount() {
         this._carregarLancamentos();
     }
 
+    _Logout = async (event) => {
+        AsyncStorage.removeItem('@opflix:token');
+        this.props.navigation.navigate('AuthStack')
+      }
+    
     _carregarLancamentos = async () => {
         try {
             let token = await AsyncStorage.getItem('@opflix:token');
@@ -40,13 +56,14 @@ class Main extends Component {
         const scrollEnabled = this.state.screenHeight > height
         return (
             <SafeAreaView style={styles.container}>
-                <ScrollView 
-                    style={{flex: 1}}
+                <ScrollView
+                    style={{ flex: 1 }}
                     scrollEnabled={scrollEnabled}
                     onContentSizeChange={this.onContentSizeChange}
                 >
-                    <View style={styles.background}>
-                        <Image source={require('../assets/img/logovermelho.png')} />
+                        <View style={styles.background}>
+                    <TouchableOpacity onPress={this._Logout} style={{ width: "15%", marginLeft: "70%",}}><Text style={{ fontSize: 25, color: "#aaa", fontWeight: "bold", marginTop: 30 }}>Sair</Text></TouchableOpacity>
+                        <Image style={styles.icone} source={require('../assets/img/logovermelho.png')} />
                         <Text style={styles.title}>l a n ç a m e n t o s</Text>
                         <FlatList
                             data={this.state.lancamentos}
@@ -64,6 +81,8 @@ class Main extends Component {
                                 </View>
                             )}
                         />
+                        <Text></Text>
+                        <Text></Text>
                     </View>
                 </ScrollView>
             </SafeAreaView>
@@ -86,16 +105,20 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 22,
         textAlign: "center",
-        padding: 50,
+        padding: 25,
     },
     box: {
-        backgroundColor: '#670309',
-        borderRadius: 10,
-        width: '90%',
-        height: '12%',
-        marginTop: 10,
+        marginTop: 20,
+        width: 320,
+    },
+    icone: {
+        marginTop: "10%"
     },
     filme: {
+        paddingLeft: 10,
+        width: '100%',
+        backgroundColor: '#670309',
+        borderRadius: 10,
         color: 'black',
         fontWeight: "bold",
         fontSize: 20,

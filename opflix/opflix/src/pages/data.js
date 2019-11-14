@@ -10,6 +10,23 @@ class Data extends Component {
     };
   }
 
+  static navigationOptions = {
+    tabBarIcon: () => (
+      <Image
+        source={require('../assets/img/data.png')}
+        style={{ width: 25, height: 25, tintColor: '#fff' }}
+      />
+    )
+  }
+  
+  _listaVazia = () => {
+    return (
+      <View>
+        <Text style={{ textAlign: 'center', color: 'white' }}>Nenhum filme encontrado com essa data.</Text>
+      </View>
+    );
+  };
+
   _carregarLancamentos = async () => {
     await fetch('http://192.168.4.240:5000/api/lancamentos/filtrarpordata/' + this.state.Data, {
       method: 'GET',
@@ -26,14 +43,16 @@ class Data extends Component {
   render() {
     return (
       <View style={styles.background}>
-        <Image source={require('../assets/img/logovermelho.png')} />
-        <TextInput style={styles.input} placeholder='data lançamento' onChangeText={Data => this.setState({ Data })}></TextInput>
+        <Image style={styles.icone} source={require('../assets/img/logovermelho.png')} />
+        <Text style={styles.title}>l a n ç a m e n t o s</Text>
+        <TextInput style={styles.input} placeholder='Data' onChangeText={Data => this.setState({ Data })} placeholderTextColor="#aaa"></TextInput>
         <TouchableOpacity style={styles.button} onPress={this._carregarLancamentos}>
           <Text style={styles.letraButton}>Filtrar</Text>
         </TouchableOpacity>
 
         <FlatList
           data={this.state.lancamentos}
+          ListEmptyComponent={this._listaVazia}
           keyExtractor={item => item.idLancamento}
           renderItem={({ item }) => (
             <View style={styles.box}>
@@ -48,6 +67,8 @@ class Data extends Component {
             </View>
           )}
         />
+        <Text></Text>
+        <Text></Text>
       </View>
     );
   }
@@ -59,6 +80,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: "center",
   },
+  icone: {
+    marginTop: "10%"
+  },
   white: {
     color: 'white',
     fontSize: 17,
@@ -69,26 +93,27 @@ const styles = StyleSheet.create({
     fontSize: 17,
     borderBottomColor: '#670309',
     borderBottomWidth: StyleSheet.hairlineWidth,
-    width: "90%",
+    width: "60%",
   },
   title: {
     color: 'white',
     fontSize: 22,
     textAlign: "center",
-    padding: 50,
+    padding: 25,
   },
   box: {
+    marginTop: 20,
+    width: 320,
+},
+filme: {
+    paddingLeft: 10,
+    width: '100%',
     backgroundColor: '#670309',
     borderRadius: 10,
-    width: '100%',
-    height: '34%',
-    marginTop: 10,
-  },
-  filme: {
     color: 'black',
     fontWeight: "bold",
     fontSize: 20,
-  },
+},
   container: {
     backgroundColor: "black",
     flex: 1,
@@ -106,6 +131,7 @@ const styles = StyleSheet.create({
     width: '30%',
     height: 30,
     marginTop: 50,
+    marginBottom: 30,
   },
 });
 export default Data;

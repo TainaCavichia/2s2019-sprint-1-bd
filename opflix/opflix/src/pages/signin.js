@@ -10,9 +10,18 @@ class SignIn extends Component {
     constructor() {
         super();
         this.state = {
-            email: null,
-            senha: null,
+            email: "t@ata.com",
+            senha: "123123",
         };
+    }
+    componentDidMount() {
+        this._verificacao();
+    }
+
+    _verificacao = async () => {
+        if (await AsyncStorage.getItem('@opflix:token') != null) {
+            this.props.navigation.navigate('MainNavigator')
+        }
     }
 
     _realizarLogin = async () => {
@@ -47,8 +56,8 @@ class SignIn extends Component {
         return (
             <View style= {styles.background}>
                 <Image source={require('../assets/img/logovermelho.png')}/>
-                <TextInput style= {styles.white} placeholder='email' placeholderTextColor="white" onChangeText={email => this.setState({ email })}></TextInput>
-                <TextInput style= {styles.white} placeholder='senha' secureTextEntry={true} placeholderTextColor="white" onChangeText={senha => this.setState({ senha })}></TextInput>
+                <TextInput style= {styles.white} placeholder='email' placeholderTextColor="#aaa" onChangeText={email => this.setState({ email })}></TextInput>
+                <TextInput style= {styles.white} placeholder='senha' secureTextEntry={true} placeholderTextColor="#aaa" onChangeText={senha => this.setState({ senha })}></TextInput>
                 <TouchableOpacity onPress={this._realizarLogin} style={styles.button}>
                     <Text style= {styles.letraButton} >Login</Text>
                 </TouchableOpacity>
