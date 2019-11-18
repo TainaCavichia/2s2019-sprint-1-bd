@@ -6,7 +6,7 @@ class Data extends Component {
     super();
     this.state = {
       lancamentos: [],
-      Data: null,
+      Data: "0",
     };
   }
 
@@ -20,12 +20,22 @@ class Data extends Component {
   }
   
   _listaVazia = () => {
-    return (
-      <View>
-        <Text style={{ textAlign: 'center', color: 'white' }}>Nenhum filme encontrado com essa data.</Text>
-      </View>
+    let teste = this.state.Data;
+
+    if(teste == "0"){
+        return (
+            <View>
+            <Text style={{ textAlign: 'center' }}></Text>
+        </View>
+        );
+    }else{
+        return (
+            <View>
+            <Text style={{ textAlign: 'center', color: "white" }}>Nenhum filme encontrado nessa data.</Text>
+        </View>
     );
-  };
+}
+};
 
   _carregarLancamentos = async () => {
     await fetch('http://192.168.4.240:5000/api/lancamentos/filtrarpordata/' + this.state.Data, {

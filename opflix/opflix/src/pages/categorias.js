@@ -8,7 +8,7 @@ class Categorias extends Component {
         this.state = {
             lancamentos: [],
             categorias: [],
-            categoriaSelecionada: null,
+            categoriaSelecionada: "0",
         };
     }
 
@@ -22,21 +22,22 @@ class Categorias extends Component {
     }
 
     _listaVazia = () => {
-        if (this.state.categoriaSelecionada == null) {
+        let teste = this.state.categoriaSelecionada;
+    
+        if(teste == "0"){
             return (
                 <View>
-                    <Text></Text>
-                </View>
-            )
-        }
-        else {
-            return (
-                <View>
-                    <Text style={{ textAlign: 'center', color: "white" }}>Nenhum filme encontrado nessa categoria.</Text>
-                </View >
+                <Text style={{ textAlign: 'center' }}></Text>
+            </View>
             );
-        };
+        }else{
+            return (
+                <View>
+                <Text style={{ textAlign: 'center',color: "white" }}>Nenhum filme encontrado nessa categoria.</Text>
+            </View>
+        );
     }
+    };
 
     componentDidMount() {
         this._carregarCategorias();
