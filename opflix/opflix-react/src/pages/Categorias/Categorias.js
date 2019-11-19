@@ -19,7 +19,7 @@ class Categorias extends Component {
     }
 
     listaAtualizada = () => {
-        fetch('http://localhost:5000/api/categorias', {
+        fetch('http://192.168.4.240:5000/api/categorias', {
             headers: {
 
                 'Authorization': 'Bearer ' + localStorage.getItem('usuario-opflix')
@@ -32,7 +32,7 @@ class Categorias extends Component {
     adicionaItem = (event) => {
         event.preventDefault();
         console.log(this.state.nome);
-        fetch('http://localhost:5000/api/categorias', {
+        fetch('http://192.168.4.240:5000/api/categorias', {
             method: "POST",
             body: JSON.stringify({ nome: this.state.nome }),
             headers: {
@@ -60,11 +60,11 @@ class Categorias extends Component {
                                 <img className="logo" src={logo} />
                             </div>
                             <div className="admin">
-                                <Link to="/plataformas">Plataformas</Link>
-                                <Link to="/categorias">Categorias</Link>
-                                <Link to="/lancamentosadmin">Lançamentos</Link>
-                                <Link to="/usuarios">Usuários</Link>
-                                <Link to="/">Logout</Link>
+                                <Link className="abacaxi" to="/plataformas">Plataformas</Link>
+                                <Link className="abacaxi" to="/categorias">Categorias</Link>
+                                <Link className="abacaxi" to="/lancamentosadmin">Lançamentos</Link>
+                                <Link className="abacaxi" to="/usuarios">Usuários</Link>
+                                <Link className="abacaxi" to="/">Logout</Link>
                             </div>
                         </nav>
                     </div>
@@ -72,9 +72,9 @@ class Categorias extends Component {
                 <body>
                     <main>
                         <section>
-                            <Titulo titulo='c a d a s t r a r  c a t e g o r i a' />
+                            <Titulo titulo='c a d a s t r a r - c a t e g o r i a' />
                             <div>
-                                <form>
+                                <form className="irra">
                                     <div>
                                         <input className="input_categoria"
                                             placeholder="nome"

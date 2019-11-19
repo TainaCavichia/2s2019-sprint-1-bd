@@ -18,7 +18,7 @@ class Plataformas extends Component{
     }
 
     listaAtualizada = () =>{
-        fetch('http://localhost:5000/api/plataformas', { headers: {
+        fetch('http://192.168.4.240:5000/api/plataformas', { headers: {
 
             'Authorization': 'Bearer ' + localStorage.getItem('usuario-opflix')
         },})
@@ -29,7 +29,7 @@ class Plataformas extends Component{
     adicionaItem = (event) => {
         event.preventDefault();
         console.log(this.state.nome);
-        fetch('http://localhost:5000/api/plataformas',{
+        fetch('http://192.168.4.240:5000/api/plataformas',{
             method: "POST",
             body: JSON.stringify({ nome: this.state.nome }),
             headers: {
@@ -69,43 +69,45 @@ class Plataformas extends Component{
 <body>
     <main>
         <section>
-            <Titulo titulo='c a d a s t r a r  p l a t a f o r m a' />
-        <div>
-            <form>
-                <div>
-                    <input className="input_categoria"
-                    placeholder="nome"
-                    type="text"
-                    name="name"
-                    type="text"
-                    value={this.state.nome}
-                    onChange={this.atualizarNome}/> 
-                </div>
-                <div>
-                    <button onClick={this.adicionaItem} className="btn_categoria">Cadastrar</button>
-                </div>
-            </form>
-        </div>
-        <div>
-            <table id="tabela-lista">
-                <thead>
-                    <tr>
-                    <th>#</th>
-                    <th>plataforma</th>
-                    </tr>
-                </thead>
-        
-                <tbody id="tabela-lista-corpo">
-                    {this.state.lista.map(element => {
-                        return (
-                            <tr key={element.idPlataforma}>
-                                <tr>{element.idPlataforma}</tr>
-                                <td>{element.nome}</td>
-                            </tr>
-                        )
-                    })}
-                </tbody>
-            </table>
+            <Titulo titulo='c a d a s t r a r - p l a t a f o r m a' />
+        <div id='divona'>
+            <div>
+                <form className="irra">
+                    <div >
+                        <input className="input_categoria"
+                        placeholder="nome"
+                        type="text"
+                        name="name"
+                        type="text"
+                        value={this.state.nome}
+                        onChange={this.atualizarNome}/> 
+                    </div>
+                    <div>
+                        <button onClick={this.adicionaItem} className="btn_categoria">Cadastrar</button>
+                    </div>
+                </form>
+            </div>
+            <div>
+                <table id="tabela-lista">
+                    <thead>
+                        <tr>
+                        <th>#</th>
+                        <th>plataforma</th>
+                        </tr>
+                    </thead>
+            
+                    <tbody id="tabela-lista-corpo">
+                        {this.state.lista.map(element => {
+                            return (
+                                <tr key={element.idPlataforma}>
+                                    <tr>{element.idPlataforma}</tr>
+                                    <td>{element.nome}</td>
+                                </tr>
+                            )
+                        })}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </section>
     

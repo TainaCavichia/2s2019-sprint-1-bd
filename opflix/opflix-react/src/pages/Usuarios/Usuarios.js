@@ -15,7 +15,7 @@ class Usuarios extends Component {
     }
 
     componentDidMount() {
-        Axios.get('http://localhost:5000/api/usuarios', {
+        Axios.get('http://192.168.4.240:5000/api/usuarios', {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('usuario-opflix')
             }
@@ -37,7 +37,7 @@ class Usuarios extends Component {
                                 <img className="logo" src="https://fontmeme.com/permalink/191012/f031c30da3e8b41e40dc9ad5f3a3559e.png" />
                             </div>
                             <div className="admin">
-                            <Link to="/criarcontaadm">Cadastrar usuários</Link>
+                            <Link to="/criarcontaadm" className="abacaxi">Cadastrar</Link>
                             </div>
                         </nav>
                     </div>

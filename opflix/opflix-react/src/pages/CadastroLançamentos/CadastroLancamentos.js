@@ -24,7 +24,7 @@ class CadastroLancamentos extends Component {
     }
 
     componentDidMount() {
-        Axios.get('http://localhost:5000/api/categorias', {
+        Axios.get('http://192.168.4.240:5000/api/categorias', {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('usuario-opflix')
             }
@@ -35,7 +35,7 @@ class CadastroLancamentos extends Component {
             .catch(erro => {
                 console.log(erro);
             });
-        Axios.get('http://localhost:5000/api/plataformas', {
+        Axios.get('http://192.168.4.240:5000/api/plataformas', {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('usuario-opflix')
             }
@@ -130,7 +130,7 @@ class CadastroLancamentos extends Component {
                             </nav>
                         </div>
                     </header>
-                    <Titulo titulo="c a d a s t r a r l a n ç a  m e n t o" className="diminuirPadding"/>
+                    <Titulo titulo="c a d a s t r a r - l a n ç a  m e n t o" className="diminuirPadding"/>
                     <div className="arrumarForm">
 
                         <input type="text" id="evento__titulo" placeholder="Título" onInput={this.atualizarTitulo} /> <br/>

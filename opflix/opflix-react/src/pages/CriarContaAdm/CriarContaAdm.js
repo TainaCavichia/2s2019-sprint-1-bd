@@ -52,7 +52,7 @@ class CriarContaAdm extends Component{
         console.log();
         event.preventDefault();
         
-        Axios.post('http://localhost:5000/api/usuarios', {
+        Axios.post('http://192.168.4.240:5000/api/usuarios', {
             nome: this.state.nome,
             email: this.state.email,
             dataNascimento: this.state.dataNascimento,
@@ -87,11 +87,11 @@ render(){
             <img className="logo" src="https://fontmeme.com/permalink/191012/f031c30da3e8b41e40dc9ad5f3a3559e.png" />
         </div>
         <div className="admin">
-            <Link to="/plataformas">Plataformas</Link>
-            <Link to="/categorias">Categorias</Link>
-            <Link to="/lancamentosadmin">Lançamentos</Link>
-            <Link to="/usuarios">Usuários</Link>
-            <Link to="/">Logout</Link>
+            <Link className="abacaxi" to="/plataformas">Plataformas</Link>
+            <Link className="abacaxi" to="/categorias">Categorias</Link>
+            <Link className="abacaxi" to="/lancamentosadmin">Lançamentos</Link>
+            <Link className="abacaxi" to="/usuarios">Usuários</Link>
+            <Link className="abacaxi" to="/">Logout</Link>
         </div>
         </nav>
     </div>
@@ -99,64 +99,57 @@ render(){
 <body>
     <main>
         <section>
-            <h2>c r i a r  c o n t a</h2>
+            <h2>c r i a r - c o n t a</h2>
         <div>
-            
-                <div>
-                    <input className="input_usuario"
+        <form className='arrumarForm'>
+                
+                    <input 
                     onInput={this.atualizarNome}
                     placeholder="nome"
                     name="name"
-                    type="text"/> 
-                </div>
-                <div>
-                    <input className="input_usuario"
+                    type="text"/> <br/>
+                
+                    <input 
                     onInput={this.atualizarEmail}
                     placeholder="email"
                     name="email"
-                    type="email"/> 
-                </div>
-                <div>
-                    <input className="input_usuario"
+                    type="email"/> <br/>
+              
+                    <input 
                     onInput={this.atualizarDataNascimento}
                     placeholder="nascimento"
                     type="date"
-                    name="date"/> 
-                </div>
-                <div>
-                    <input className="input_usuario"
+                    name="date"/> <br/>
+                
+                    <input 
                     onInput={this.atualizarCPF}
                     placeholder="cpf"
                     type="text"
-                    name="cpf"/> 
-                </div>
-                <div>
-                    <input className="input_usuario"
+                    name="cpf"/> <br/>
+                
+                    <input
                     onInput={this.atualizarTelefone}
                     placeholder="telefone"
                     type="tel"
-                    name="telefone"/> 
-                </div>
-                <div>
-                    <input className="input_usuario"
+                    name="telefone"/> <br/>
+                
+                    <input 
                     onInput={this.atualizarSenha}
                     placeholder="senha"
                     type="password"
-                    name="senha"/> 
-                </div>
-                <div>
-                <select className="input_usuario"
+                    name="senha"/> <br/>
+                
+                <select 
                     id="option__acessolivre" 
-                    onInput={this.atualizarTipoUsuario}>
+                    onInput={this.atualizarTipoUsuario}><br/>
                     <option selected>Tipo usuário</option>
                     <option value="1">Administrador</option>
                     <option value="2">Comum</option>
-                </select>
-    
-                </div>
-                <div>
-                    <button onClick={this.adicionaItem} className="btn_categoria">Cadastrar</button>
-                </div>
+                </select><br/>
+                
+                    <button onClick={this.adicionaItem} className="btn__conta">Cadastrar</button><br/>
+                
+                </form>
             
         </div>
     </section>

@@ -20,8 +20,8 @@ function App() {
                 <img className="logo" src="https://fontmeme.com/permalink/191012/733b6dd4db71e3c5c747ba52909fde7d.png" alt="netflix-font" />
               </div>      
                 <nav className="menuzinho">
-                    <a>Funcionalidades</a>
-                    <a>Contatos</a>
+                    <a href="#conteudoPrincipal-eventos">Funcionalidades</a>
+                    <a href="#meno">Contatos</a>
                     <Link className="lolo" to="/login">Login</Link>
                 </nav>
             </div>
@@ -57,7 +57,7 @@ function App() {
 
 
         <section id="conteudoPrincipal-contato">
-          <h2 id="conteudoPrincipal-contato-titulo">c o n t a t o s</h2>
+          <h2 id="meno">c o n t a t o s</h2>
           <div >
             <div className="conteudoimg">
                 <img className="redes-sociais" src={icon1} />
