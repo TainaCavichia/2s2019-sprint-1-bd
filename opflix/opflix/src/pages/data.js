@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View,FlatList, TextInput, StyleSheet, AsyncStorage, Image, TouchableOpacity } from 'react-native';
+import DatePicker from 'react-native-datepicker'
 
 class Data extends Component {
   constructor() {
@@ -55,7 +56,28 @@ class Data extends Component {
       <View style={styles.background}>
         <Image style={styles.icone} source={require('../assets/img/logovermelho.png')} />
         <Text style={styles.title}>l a n ç a m e n t o s</Text>
-        <TextInput style={styles.input} placeholder='Data' onChangeText={Data => this.setState({ Data })} placeholderTextColor="#aaa"></TextInput>
+        <DatePicker
+        style={{width: 200}}
+        date={this.state.Data}
+        mode="date"
+        format="YYYY-MM-DD"
+        minDate="1993-01-01"
+        maxDate="2020-01-30"
+        confirmBtnText="Confirm"
+        cancelBtnText="Cancel"
+        customStyles={{
+          dateIcon: {
+            position: 'absolute',
+            left: 0,
+            top: 4,
+            marginLeft: 0
+          },
+          dateInput: {
+            marginLeft: 36
+          }
+        }}
+        onDateChange={Data => this.setState({ Data })}
+      /> 
         <TouchableOpacity style={styles.button} onPress={this._carregarLancamentos}>
           <Text style={styles.letraButton}>Filtrar</Text>
         </TouchableOpacity>
