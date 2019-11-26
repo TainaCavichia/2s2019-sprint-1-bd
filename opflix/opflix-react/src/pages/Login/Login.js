@@ -46,11 +46,11 @@ class Login extends Component {
     render() {
         return (
             <div>
+                <img className="iti" src={logo} />
                 <main className="conteudoPrincipal">
                     <section id="conteudoPrincipal-eventos">
                         <div className="a">
                             <div className="imagem-Iti">
-                                <img className="iti" src={logo} />
                             </div>
                             <div className="formularioo">
                                 <form onSubmit={this.efetuarLogin}>
@@ -74,7 +74,7 @@ class Login extends Component {
                                             Login
                                 </button>
                                     </div>
-                                        <Link to="/criarconta" className='criar_conta'>Criar conta!</Link>
+                                    <Link to="/criarconta" className='criar_conta'>Criar conta!</Link>
                                 </form>
                             </div>
 

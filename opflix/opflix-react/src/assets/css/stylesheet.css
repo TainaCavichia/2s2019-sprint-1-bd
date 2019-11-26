@@ -21,7 +21,7 @@ html {
 }
 .banner{
     width: 100%;
-    height: 500px;
+    height: 100vh;
 }
 .titulo{
     padding-top: 12%;
@@ -68,6 +68,8 @@ html {
     color: white;
 }
 .abacaxi{
+    padding: 0 3% 0 3%;
+    font-size: 2.5vh;
     color: white;
 }
 .peppa{
@@ -76,10 +78,10 @@ html {
     color: white;
 }
 .iti{
-    width: 72%;
-    position: relative;
-    right: 28%;
+    width: 40%;
+    position: fixed;
     height: 100vh;
+    top: 0;
 }
 .bla{
     display: flex;
@@ -175,8 +177,9 @@ body{
 }
 .a{
     display: flex;
-    justify-content: space-around;
     align-items: center;
+    margin-top: 30vh;
+    margin-left: 67.5%;
 }
 
 .formularioo{
@@ -231,7 +234,6 @@ body{
 }
 .container{
     display: flex; 
-    background-color: #8D0D0D;
     justify-content: space-between;
     position: fixed;
     width: 100%;
@@ -287,6 +289,14 @@ main{
     margin-right: 10%;
 }
 
+.admn{
+    margin-right: 10%;
+}
+
+.admn a{
+    margin: 0 30%;
+}
+
 .admin a{
     margin: 0 3%;
 }
@@ -314,8 +324,6 @@ main{
 }
 
 #tabela-lista{
-    position: relative;
-    left: 20%;
     width: 100%;
     text-align: left;
 }

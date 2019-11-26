@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Footer from '../../components/Footer/Footer';
 import Titulo from '../../components/Titulo/Titulo'
 import Axios from 'axios';
-import jokerposter from '../../assets/img/jokerposter.jpg'
+import jokerposter from '../../assets/img/jokerposter.png'
 import bola1 from '../../assets/img/png.png'
 import bola2 from '../../assets/img/aa.png'
 import bola3 from '../../assets/img/beyonce.png'

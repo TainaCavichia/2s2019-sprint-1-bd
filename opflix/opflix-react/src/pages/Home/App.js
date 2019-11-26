@@ -3,7 +3,7 @@ import Footer from '../../components/Footer/Footer';
 import Titulo from '../../components/Titulo/Titulo'
 import '../../assets/css/stylesheet.css';
 import {Link} from 'react-router-dom';
-import jokerposter from '../../assets/img/jokerposter.jpg'
+import jokerposter from '../../assets/img/jokerposter.png'
 import toystory from '../../assets/img/Toy-Story-4.jpg'
 import casa from '../../assets/img/lacasadepapel.jpg'
 import vingadores from '../../assets/img/vingadores.jpg'

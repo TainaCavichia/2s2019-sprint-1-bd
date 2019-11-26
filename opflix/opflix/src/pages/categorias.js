@@ -79,7 +79,6 @@ class Categorias extends Component {
                                 style={{ height: 50, width: "100%", color: "#fff", backgroundColor: "black", fontSize: 18 }}
                                 onValueChange={(itemValue , itemIndex) => {
                                     this.setState({ categoriaSelecionada: itemValue })
-                                    this._carregarLancamentos
                                 }}>
                                 <Picker.item label="Categoria" value="0" selectedValue />
                                 {this.state.categorias.map(element => {
@@ -155,14 +154,13 @@ const styles = StyleSheet.create({
         width: '100%',
         backgroundColor: '#670309',
         borderRadius: 10,
-        color: 'black',
+        color: 'white',
         fontWeight: "bold",
         fontSize: 20,
 
     },
     button: {
         backgroundColor: '#670309',
-        color: 'white',
         borderRadius: 10,
         width: '30%',
         height: 30,

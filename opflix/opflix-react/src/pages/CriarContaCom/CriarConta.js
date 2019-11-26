@@ -83,7 +83,7 @@ class CriarConta extends Component {
                             <div className="conteudo-imagem">
                                 <img className="logo" src="https://fontmeme.com/permalink/191012/f031c30da3e8b41e40dc9ad5f3a3559e.png" />
                             </div>
-                            <div className="admin">
+                            <div className="admn">
                                 <Link to="/" className="abacaxi">Home</Link>
                                 <Link to="/login" className="abacaxi">Login</Link>
                             </div>

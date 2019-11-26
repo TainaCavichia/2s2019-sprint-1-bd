@@ -100,6 +100,7 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 17,
         textAlign: "left",
+        paddingLeft: 10,
     },
     title: {
         color: 'white',
@@ -119,7 +120,7 @@ const styles = StyleSheet.create({
         width: '100%',
         backgroundColor: '#670309',
         borderRadius: 10,
-        color: 'black',
+        color: 'white',
         fontWeight: "bold",
         fontSize: 20,
     },
