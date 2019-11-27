@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Image, StyleSheet, AsyncStorage, SafeAreaView, Dimensions, TouchableOpacity } from 'react-native';
+import { Text, View, Image, StyleSheet, AsyncStorage, SafeAreaView, Dimensions, TouchableOpacity, StatusBar, ActivityIndicator } from 'react-native';
 import { FlatList, ScrollView } from 'react-native-gesture-handler';
 
 const { height } = Dimensions.get('window');
@@ -10,6 +10,7 @@ class Main extends Component {
         this.state = {
             lancamentos: [],
             screenHeight: 0,
+            loading: true,
         };
     }
 
@@ -27,13 +28,9 @@ class Main extends Component {
     }
 
     componentDidMount() {
+        console.disableYellowBox = true;
         this._carregarLancamentos();
     }
-
-    _Logout = async (event) => {
-        AsyncStorage.removeItem('@opflix:token');
-        this.props.navigation.navigate('AuthStack')
-      }
     
     _carregarLancamentos = async () => {
         try {
@@ -46,7 +43,7 @@ class Main extends Component {
                 },
             })
                 .then(resposta => resposta.json())
-                .then(data => this.setState({ lancamentos: data }))
+                .then(data => this.setState({ loading: false, lancamentos: data }))
         } catch (error) {
 
         }
@@ -56,15 +53,27 @@ class Main extends Component {
         const scrollEnabled = this.state.screenHeight > height
         return (
             <SafeAreaView style={styles.container}>
+                 <StatusBar
+                barStyle="light-content"
+                // dark-content, light-content and default
+                hidden={false}
+                //To hide statusBar
+                backgroundColor="#000000"
+                //Background color of statusBar only works for Android
+                translucent={false}
+                //allowing light, but not detailed shapes
+                networkActivityIndicatorVisible={true}
+            />
                 <ScrollView
                     style={{ flex: 1 }}
                     scrollEnabled={scrollEnabled}
                     onContentSizeChange={this.onContentSizeChange}
                 >
                         <View style={styles.background}>
-                    <TouchableOpacity onPress={this._Logout} style={{ width: "15%", marginLeft: "70%",}}><Text style={{ fontSize: 25, color: "#aaa", fontWeight: "bold", marginTop: 30 }}>Sair</Text></TouchableOpacity>
                         <Image style={styles.icone} source={require('../assets/img/logovermelho.png')} />
                         <Text style={styles.title}>l a n ç a m e n t o s</Text>
+
+                        {this.state.loading ? <ActivityIndicator size="large" color="gray"/> :
                         <FlatList
                             data={this.state.lancamentos}
                             keyExtractor={item => item.idLancamento}
@@ -80,7 +89,7 @@ class Main extends Component {
                                     <Text style={styles.white}>{item.descricao}</Text>
                                 </View>
                             )}
-                        />
+                        />}
                         <Text></Text>
                         <Text></Text>
                     </View>

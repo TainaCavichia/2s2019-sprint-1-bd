@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View,FlatList, TextInput, StyleSheet, AsyncStorage, Image, TouchableOpacity } from 'react-native';
+import { Text, View,FlatList, TextInput, StyleSheet, AsyncStorage, Image, TouchableOpacity, StatusBar } from 'react-native';
 import DatePicker from 'react-native-datepicker'
 
 class Data extends Component {
@@ -19,7 +19,12 @@ class Data extends Component {
       />
     )
   }
-  
+
+  componentDidMount(){
+    console.disableYellowBox = true;
+
+  }
+
   _listaVazia = () => {
     let teste = this.state.Data;
 
@@ -54,6 +59,17 @@ class Data extends Component {
   render() {
     return (
       <View style={styles.background}>
+         <StatusBar
+                barStyle="light-content"
+                // dark-content, light-content and default
+                hidden={false}
+                //To hide statusBar
+                backgroundColor="#000000"
+                //Background color of statusBar only works for Android
+                translucent={false}
+                //allowing light, but not detailed shapes
+                networkActivityIndicatorVisible={true}
+            />
         <Image style={styles.icone} source={require('../assets/img/logovermelho.png')} />
         <Text style={styles.title}>l a n ç a m e n t o s</Text>
         <DatePicker

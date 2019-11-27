@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Image, StyleSheet, AsyncStorage, SafeAreaView, Picker, TouchableOpacity, ScrollView } from 'react-native';
+import { Text, View, Image, StyleSheet, AsyncStorage, SafeAreaView, Picker, TouchableOpacity, ScrollView, StatusBar } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 
 class Categorias extends Component {
@@ -23,25 +23,26 @@ class Categorias extends Component {
 
     _listaVazia = () => {
         let teste = this.state.categoriaSelecionada;
-    
-        if(teste == "0"){
+
+        if (teste == "0") {
             return (
                 <View>
-                <Text style={{ textAlign: 'center' }}></Text>
-            </View>
+                    <Text style={{ textAlign: 'center' }}></Text>
+                </View>
             );
-        }else{
+        } else {
             return (
                 <View>
-                <Text style={{ textAlign: 'center',color: "white" }}>Nenhum filme encontrado nessa categoria.</Text>
-            </View>
-        );
-    }
+                    <Text style={{ textAlign: 'center', color: "white" }}>Nenhum filme encontrado nessa categoria.</Text>
+                </View>
+            );
+        }
     };
 
     componentDidMount() {
         this._carregarCategorias();
-        this._carregarLancamentos();
+        console.disableYellowBox = true;
+
     }
     _carregarCategorias = async () => {
         await fetch('http://192.168.4.240:5000/api/categorias', {
@@ -54,8 +55,8 @@ class Categorias extends Component {
             .then(data => this.setState({ categorias: data }))
             .catch(erro => console.warn(erro));
     }
-    _carregarLancamentos = async () => {
-        await fetch('http://192.168.4.240:5000/api/lancamentos/filtrarporcategoria/' + this.state.categoriaSelecionada, {
+    _carregarLancamentos = async (itemValue) => {
+        await fetch('http://192.168.4.240:5000/api/lancamentos/filtrarporcategoria/' + itemValue, {
             headers: {
                 "Accept": "application/json",
                 "Authorization": "Bearer " + await AsyncStorage.getItem('@opflix:token')
@@ -69,6 +70,17 @@ class Categorias extends Component {
     render() {
         return (
             <SafeAreaView style={styles.container}>
+            <StatusBar
+                barStyle="light-content"
+                // dark-content, light-content and default
+                hidden={false}
+                //To hide statusBar
+                backgroundColor="#000000"
+                //Background color of statusBar only works for Android
+                translucent={false}
+                //allowing light, but not detailed shapes
+                networkActivityIndicatorVisible={true}
+            />
                 <ScrollView style={{ flex: 1, backgroundColor: "black" }}>
                     <View style={styles.background}>
                         <Image style={styles.icone} source={require('../assets/img/logovermelho.png')} />
@@ -77,8 +89,10 @@ class Categorias extends Component {
                             <Picker
                                 selectedValue={this.state.categoriaSelecionada}
                                 style={{ height: 50, width: "100%", color: "#fff", backgroundColor: "black", fontSize: 18 }}
-                                onValueChange={(itemValue , itemIndex) => {
+                                onValueChange={(itemValue, itemIndex) => {
+                                    this._carregarLancamentos(itemValue)
                                     this.setState({ categoriaSelecionada: itemValue })
+
                                 }}>
                                 <Picker.item label="Categoria" value="0" selectedValue />
                                 {this.state.categorias.map(element => {
@@ -88,9 +102,6 @@ class Categorias extends Component {
                                 })}
                             </Picker>
                         </View>
-                        <TouchableOpacity onPress={this._carregarLancamentos} style={styles.button}>
-                            <Text style={styles.letraButton}>Filtrar</Text>
-                        </TouchableOpacity>
 
                         <FlatList
                             data={this.state.lancamentos}

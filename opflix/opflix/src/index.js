@@ -6,6 +6,7 @@ import CategoriasScreen from './pages/categorias';
 import MainScreen from './pages/main';
 import DataScreen from './pages/data';
 import SignInScreen from './pages/signin';
+import ProfileScreen from './pages/profile';
 
 const AuthStack = createStackNavigator({
     Sign: { screen: SignInScreen },
@@ -13,14 +14,17 @@ const AuthStack = createStackNavigator({
   
   const MainNavigator = createBottomTabNavigator(
     {
-      Data: {
-        screen: DataScreen,
-      },
       Main: {
         screen: MainScreen,
       },
+      Data: {
+        screen: DataScreen,
+      },
       Categorias: {
         screen: CategoriasScreen,
+      },
+      Profile:{
+        screen: ProfileScreen,
       },
     },
     {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, Image, View, StyleSheet, TextInput, TouchableOpacity, AsyncStorage } from 'react-native';
+import { Text, Image, View, StyleSheet, TextInput, TouchableOpacity, AsyncStorage, StatusBar } from 'react-native';
 
 class SignIn extends Component {
 
@@ -16,6 +16,8 @@ class SignIn extends Component {
     }
     componentDidMount() {
         this._verificacao();
+        console.disableYellowBox = true;
+
     }
 
     _verificacao = async () => {
@@ -55,6 +57,17 @@ class SignIn extends Component {
     render() {
         return (
             <View style= {styles.background}>
+                 <StatusBar
+                barStyle="light-content"
+                // dark-content, light-content and default
+                hidden={false}
+                //To hide statusBar
+                backgroundColor="#000000"
+                //Background color of statusBar only works for Android
+                translucent={false}
+                //allowing light, but not detailed shapes
+                networkActivityIndicatorVisible={true}
+            />
                 <Image source={require('../assets/img/logovermelho.png')}/>
                 <TextInput style= {styles.white} value={this.state.email} placeholder='email' placeholderTextColor="#aaa" onChangeText={email => this.setState({ email })}></TextInput>
                 <TextInput style= {styles.white} value={this.state.senha} placeholder='senha' secureTextEntry={true} placeholderTextColor="#aaa" onChangeText={senha => this.setState({ senha })}></TextInput>
