@@ -99,7 +99,7 @@ render(){
 <body>
     <main>
         <section>
-            <h2>c r i a r - c o n t a</h2>
+            <Titulo className="title" titulo="c r i a r - c o n t a" />
         <div>
         <form className='arrumarForm'>
                 

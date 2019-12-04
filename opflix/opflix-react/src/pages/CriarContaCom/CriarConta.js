@@ -93,7 +93,7 @@ class CriarConta extends Component {
                 <body>
                     <main>
                         <section>
-                            <h2>c r i a r - c o n t a</h2>
+                            <h2 className="title">c r i a r - c o n t a</h2>
                             <div>
                                 <form className='arrumarForm'>
                                     

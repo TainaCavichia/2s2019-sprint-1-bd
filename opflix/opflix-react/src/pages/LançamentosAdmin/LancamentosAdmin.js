@@ -12,7 +12,7 @@ import icon1 from '../../assets/img/twitter-logo-1.png'
 import icon2 from '../../assets/img/instagram-logo.png'
 import icon3 from '../../assets/img/facebook-logo-2-1.png'
 import '../../assets/css/stylesheet.css';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class Lancamentos extends Component {
     constructor() {
@@ -53,7 +53,7 @@ class Lancamentos extends Component {
                                 <Link className="peppa" to="/">Logout</Link>
                             </nav>
                         </div>
-                        <img className="banner" src={jokerposter}/>
+                        <img className="banner" src={jokerposter} />
                     </div>
                 </header>
                 <section id="imagens_bolinhas">
@@ -69,7 +69,7 @@ class Lancamentos extends Component {
                 <div id='divinha_lancamentos'>
                     {
                         this.state.lista.map(element => {
-                            return(
+                            return (
                                 <div id="infos">
                                     <ul>
                                         <li>Título: {element.titulo}</li>
@@ -89,9 +89,9 @@ class Lancamentos extends Component {
                     <h2 id="conteudoPrincipal-contato-titulo">c o n t a t o s</h2>
                     <div >
                         <div className="conteudoimg">
-                            <img className="redes-sociais" src={icon1} />
-                            <img className="redes-sociais" src={icon2} />
-                            <img className="redes-sociais" src={icon3} />
+                            <a href="https://twitter.com/login?lang=pt" ><img className="redes-sociais" src={icon1} /></a>
+                            <a href="https://www.instagram.com/?hl=pt-br" ><img className="redes-sociais" src={icon2} /></a>
+                            <a href="https://pt-br.facebook.com/" ><img className="redes-sociais" src={icon3} /></a>
                         </div>
                     </div>
                 </section>

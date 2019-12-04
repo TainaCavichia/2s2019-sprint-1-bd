@@ -23,11 +23,21 @@ html {
     width: 100%;
     height: 100vh;
 }
-.titulo{
-    padding-top: 12%;
+.diminuirPadding{
+    padding-top: 10.2vh;
     text-align: center;
     font-size: 4vh;
     color: #8D0D0D;
+}
+
+.titulo{
+    padding: 15% 0 5% 0;
+    text-align: center;
+    font-size: 4vh;
+    color: #8D0D0D;
+}
+.title{
+    padding: 11.15vh 0
 }
 .menuzinho{
     display: flex;
@@ -48,6 +58,7 @@ html {
     width: 50vh;
     height: 5vh;
     border-radius: 10px;
+    margin-bottom: 5vh;
 }
 .irra{
     display: flex;
@@ -104,7 +115,7 @@ body{
     height: 20%;
 }
 h2{
-    padding: 12% 0 6% 0;
+    padding: 10.5% 0 5% 0;
     font-size: 5vh;
     text-align: center;
     color: #8D0D0D;
@@ -129,9 +140,9 @@ main{
     height: 40%;
 }
 .redes-sociais{
-    width: 5%;
-    height: 5%;
-    padding: 3% 0 10% 0 ;
+    width: 7vh;
+    height: 8vh;
+    padding: 3% 0 20% 0 ;
 }
 .conteudoimg{
     display: flex;
@@ -142,7 +153,7 @@ main{
     font-weight: bold;
 }
 footer{
-    padding: 3vh;
+    padding: 2vh;
     background-color: #8D0D0D;
 }
 #divinha_lancamentos{
@@ -197,10 +208,10 @@ body{
     border: #000 solid;
     font-size: 1.3em;
     cursor: pointer;
-    margin: 5px;
+    margin-bottom: 5vh;
     background-color: #8D0D0D;
     color: white;
-    width: 100%;
+    width: 18vh;
 }
 .btnbtn__login{
     border-radius: 10px;
@@ -301,9 +312,6 @@ main{
     margin: 0 3%;
 }
 
-.diminuirPadding{
-    padding-top: 0vh;
-}
 
 .arrumarForm button{
     border-radius: 20px;
@@ -319,11 +327,17 @@ main{
 }
 
 .arrumarForm{
-    padding: 5vh 0;
+    padding: 4vh 0;
     text-align: center;
 }
 
 #tabela-lista{
     width: 100%;
     text-align: left;
+    margin-bottom: 9.1vh
+}
+#tabela-listaa{
+    width: 100%;
+    text-align: left;
+    margin-bottom: 16.5vh
 }

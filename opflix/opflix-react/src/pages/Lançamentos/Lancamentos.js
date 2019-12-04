@@ -12,7 +12,7 @@ import bola5 from '../../assets/img/mikey.png'
 import icon1 from '../../assets/img/twitter-logo-1.png'
 import icon2 from '../../assets/img/instagram-logo.png'
 import icon3 from '../../assets/img/facebook-logo-2-1.png'
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class Lancamentos extends Component {
     constructor() {
@@ -42,7 +42,7 @@ class Lancamentos extends Component {
                 <header className="cabecalhoPrincipal">
                     <div className="aaa">
                         <div className="divdiv">
-                            <div className="opop"> 
+                            <div className="opop">
                                 <img className="logo" src="https://fontmeme.com/permalink/191012/733b6dd4db71e3c5c747ba52909fde7d.png" alt="netflix-font" />
                             </div>
                             <nav className="men">
@@ -64,35 +64,35 @@ class Lancamentos extends Component {
                 <Titulo className="titulo" titulo='l a n ç a m e n t o s' />
                 <div id='divinha_lancamentos'>
 
-                {
-                   this.state.lista.map(element => {
-                    return(
-                        <div id="infos">
-                            <ul>
-                                <li>Título: {element.titulo}</li>
-                                <li>Tipo da mídia: {(element.idTipoNavigation === undefined) ? '' : element.idTipoNavigation.nome}</li>
-                                <li>Sinopse: {element.sinopse}</li>
-                                <li>Tempo de duração: {element.tempoDuracao}</li>
-                                <li>Categoria: {(element.idCategoriaNavigation === undefined) ? '' : element.idCategoriaNavigation.nome}</li>
-                                <li>Data de lançamento: {element.dataLancamento}</li>
-                                <li>Plataforma: {(element.idPlataformaNavigation === undefined) ? '' : element.idPlataformaNavigation.nome}</li>
-                                <li>Descrição: {element.descricao}</li>
-                            </ul>
-                        </div>
-                    );
-                }) 
-            }
-            </div>
-                
+                    {
+                        this.state.lista.map(element => {
+                            return (
+                                <div id="infos">
+                                    <ul>
+                                        <li>Título: {element.titulo}</li>
+                                        <li>Tipo da mídia: {(element.idTipoNavigation === undefined) ? '' : element.idTipoNavigation.nome}</li>
+                                        <li>Sinopse: {element.sinopse}</li>
+                                        <li>Tempo de duração: {element.tempoDuracao}</li>
+                                        <li>Categoria: {(element.idCategoriaNavigation === undefined) ? '' : element.idCategoriaNavigation.nome}</li>
+                                        <li>Data de lançamento: {element.dataLancamento}</li>
+                                        <li>Plataforma: {(element.idPlataformaNavigation === undefined) ? '' : element.idPlataformaNavigation.nome}</li>
+                                        <li>Descrição: {element.descricao}</li>
+                                    </ul>
+                                </div>
+                            );
+                        })
+                    }
+                </div>
+
                 <section id="conteudoPrincipal-contato">
                     <h2 id="conteudoPrincipal-contato-titulo">c o n t a t o s</h2>
                     <div >
                         <div className="conteudoimg">
-                            <img className="redes-sociais" src={icon1} />
-                            <img className="redes-sociais" src={icon2} />
-                            <img className="redes-sociais" src={icon3} />
+                            <a href="https://twitter.com/login?lang=pt" ><img className="redes-sociais" src={icon1} /></a>
+                            <a href="https://www.instagram.com/?hl=pt-br" ><img className="redes-sociais" src={icon2} /></a>
+                            <a href="https://pt-br.facebook.com/" ><img className="redes-sociais" src={icon3} /></a>
                         </div>
-                    
+
                     </div>
                 </section>
                 <Footer />

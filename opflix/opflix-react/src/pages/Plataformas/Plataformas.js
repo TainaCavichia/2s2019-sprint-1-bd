@@ -88,7 +88,7 @@ class Plataformas extends Component{
                 </form>
             </div>
             <div>
-                <table id="tabela-lista">
+                <table id="tabela-listaa">
                     <thead>
                         <tr>
                         <th>#</th>

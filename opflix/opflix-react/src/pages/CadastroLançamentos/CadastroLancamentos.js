@@ -130,7 +130,7 @@ class CadastroLancamentos extends Component {
                             </nav>
                         </div>
                     </header>
-                    <Titulo titulo="c a d a s t r a r - l a n ç a  m e n t o" className="diminuirPadding"/>
+                    <h2 className="diminuirPadding">c a d a s t r a r - l a n ç a  m e n t o</h2>
                     <div className="arrumarForm">
 
                         <input type="text" id="evento__titulo" placeholder="Título" onInput={this.atualizarTitulo} /> <br/>

@@ -45,7 +45,7 @@ class Usuarios extends Component {
                 <body>
     <main>
         <section>
-            <h2>u s u á r i o s</h2>
+            <Titulo className="title" titulo="u s u á r i o s"/>
         <div>
             <table id="tabela-lista">
                 <thead>

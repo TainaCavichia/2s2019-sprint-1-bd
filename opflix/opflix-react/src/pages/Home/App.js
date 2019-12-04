@@ -60,9 +60,9 @@ function App() {
           <h2 id="meno">c o n t a t o s</h2>
           <div >
             <div className="conteudoimg">
-                <img className="redes-sociais" src={icon1} />
-                <img className="redes-sociais" src={icon2} />
-                <img className="redes-sociais" src={icon3} />
+                <a href="https://twitter.com/login?lang=pt" ><img className="redes-sociais" src={icon1} /></a>
+                <a href="https://www.instagram.com/?hl=pt-br" ><img className="redes-sociais" src={icon2} /></a>
+                <a href="https://pt-br.facebook.com/" ><img className="redes-sociais" src={icon3} /></a>
             </div>
           </div>
         </section>
