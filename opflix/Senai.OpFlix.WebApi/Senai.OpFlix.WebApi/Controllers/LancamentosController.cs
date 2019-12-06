@@ -17,6 +17,7 @@ namespace Senai.OpFlix.WebApi.Controllers
     public class LancamentosController : ControllerBase
     {
         private ILancamentoRepository LancamentoRepository { get; set; }
+      
 
         public LancamentosController()
         {
@@ -65,6 +66,7 @@ namespace Senai.OpFlix.WebApi.Controllers
             try
             {
                 LancamentoRepository.Cadastrar(lancamento);
+
                 return Ok();
             }
             catch (Exception ex)

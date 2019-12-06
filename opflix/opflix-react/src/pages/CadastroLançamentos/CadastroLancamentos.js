@@ -19,7 +19,9 @@ class CadastroLancamentos extends Component {
             categoria: [],
             categoriaSelecionada: '',
             plataforma: [],
-            plataformaSelecionada: ''
+            plataformaSelecionada: '',
+            latitude: "",
+            longitude: "",
         };
     }
 
@@ -50,7 +52,27 @@ class CadastroLancamentos extends Component {
 
     adicionaItem = (event) => {
         event.preventDefault();
-        Axios.post('http://localhost:5000/api/lancamentos', {
+        if(this.state.latitude !== null && this.state.longitude !== null){
+
+            Axios.post('http://192.168.4.240:5000/api/lancamentos', {
+                latitude: this.state.latitude,
+                longitude: this.state.longitude,
+                lancamento:{
+                    titulo: this.state.titulo,
+                    dataLancamento: this.state.dataLancamento
+                }}, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                        Authorization: 'Bearer ' + localStorage.getItem('usuario-opflix')
+                    }
+                }        
+                
+                )
+                .then(response => console.log(response.status))
+                .catch(error => console.log(error))
+                
+        Axios.post('http://192.168.4.240:5000/api/lancamentos', {
             titulo: this.state.titulo,
             sinopse: this.state.sinopse,
             tempoDuracao: this.state.tempoDuracao,
@@ -60,22 +82,23 @@ class CadastroLancamentos extends Component {
             idCategoria: this.state.categoriaSelecionada,
             idPlataforma: this.state.plataformaSelecionada
         }, {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    Authorization: 'Bearer ' + localStorage.getItem('usuario-opflix')
-                }
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                Authorization: 'Bearer ' + localStorage.getItem('usuario-opflix')
             }
+        }
         )
-            .then(response => {
-                console.log(response)
-                this.props.history.push('/lancamentos')
-            })
-            .catch(erro => {
-                this.setState({ erro: "Não foi possível cadastrar" });
-                console.log(erro);
-            });
+        .then(response => {
+            console.log(response)
+            this.props.history.push('/lancamentos')
+        })
+        .catch(erro => {
+            this.setState({ erro: "Não foi possível cadastrar" });
+            console.log(erro);
+        });
     }
+}
 
     atualizarTitulo = (event) => {
         this.setState({ titulo: event.target.value })
@@ -109,7 +132,14 @@ class CadastroLancamentos extends Component {
         this.setState({ plataformaSelecionada: event.target.value })
         console.log(event.target.value)
     }
-
+    atualizarLatitude = (event) => {
+        this.setState({ latitude: event.target.value })
+        console.log(this.state);
+    }
+    atualizarLongitude = (event) => {
+        this.setState({ longitude: event.target.value })
+        console.log(this.state);
+    }
     render() {
         return (
             <div>
@@ -162,6 +192,8 @@ class CadastroLancamentos extends Component {
                                 )
                             })}
                         </select><br/>
+                        <input type="text" id="evento__titulo" placeholder="Latitude" onInput={this.atualizarLatitude} /> <br/>
+                        <input type="text" id="evento__titulo" placeholder="Longitude" onInput={this.atualizarLongitude} /> <br/>
                         <button className="" onClick={this.adicionaItem}>Cadastrar</button>
                     </div>
                 </div>
