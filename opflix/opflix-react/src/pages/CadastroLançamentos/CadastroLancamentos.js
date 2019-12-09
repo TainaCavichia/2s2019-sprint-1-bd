@@ -54,7 +54,7 @@ class CadastroLancamentos extends Component {
         event.preventDefault();
         if(this.state.latitude !== null && this.state.longitude !== null){
 
-            Axios.post('http://192.168.4.240:5000/api/lancamentos', {
+            Axios.post('http://192.168.4.240:5000/api/localizacoes', {
                 latitude: this.state.latitude,
                 longitude: this.state.longitude,
                 lancamento:{
