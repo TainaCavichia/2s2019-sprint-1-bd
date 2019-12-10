@@ -52,7 +52,7 @@ class CriarContaAdm extends Component{
         console.log();
         event.preventDefault();
         
-        Axios.post('http://192.168.4.240:5000/api/usuarios', {
+        Axios.post('http://192.168.4.240:5001/api/usuarios', {
             nome: this.state.nome,
             email: this.state.email,
             dataNascimento: this.state.dataNascimento,

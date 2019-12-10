@@ -54,7 +54,7 @@ class CadastroLancamentos extends Component {
         event.preventDefault();
         if(this.state.latitude !== null && this.state.longitude !== null){
 
-            Axios.post('http://192.168.4.240:5000/api/localizacoes', {
+            Axios.post('http://192.168.4.240:5001/api/localizacoes', {
                 latitude: this.state.latitude,
                 longitude: this.state.longitude,
                 lancamento:{
@@ -72,7 +72,7 @@ class CadastroLancamentos extends Component {
                 .then(response => console.log(response.status))
                 .catch(error => console.log(error))
                 
-        Axios.post('http://192.168.4.240:5000/api/lancamentos', {
+        Axios.post('http://192.168.4.240:5001/api/lancamentos', {
             titulo: this.state.titulo,
             sinopse: this.state.sinopse,
             tempoDuracao: this.state.tempoDuracao,
@@ -194,10 +194,10 @@ class CadastroLancamentos extends Component {
                         </select><br/>
                         <input type="text" id="evento__titulo" placeholder="Latitude" onInput={this.atualizarLatitude} /> <br/>
                         <input type="text" id="evento__titulo" placeholder="Longitude" onInput={this.atualizarLongitude} /> <br/>
-                        <button className="" onClick={this.adicionaItem}>Cadastrar</button>
+                        <button onClick={this.adicionaItem}>Cadastrar</button>
                     </div>
                 </div>
-                <Footer />
+             
             </div>
         )
     }

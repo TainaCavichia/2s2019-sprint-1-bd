@@ -4,6 +4,7 @@ import './index.css';
 import App from './pages/Home/App';
 import Login from './pages/Login/Login';
 import Lancamentos from './pages/Lançamentos/Lancamentos';
+import Mapa from './pages/Mapa/Mapa';
 import LancametosAdmin from './pages/LançamentosAdmin/LancamentosAdmin';
 import Usuarios from './pages/Usuarios/Usuarios';
 import Categorias from './pages/Categorias/Categorias';
@@ -56,6 +57,7 @@ const routing = (
             <Switch>
             <Route exact path='/' component={App}/>
             <RotaPrivada path='/lancamentos' component={Lancamentos}/>
+            <PermissaoADM path='/mapa' component={Mapa}/>
             <PermissaoADM path='/lancamentosadmin' component={LancametosAdmin}/>
             <PermissaoADM  path='/categorias' component={Categorias}/>
             <PermissaoADM  path='/plataformas' component={Plataformas}/>

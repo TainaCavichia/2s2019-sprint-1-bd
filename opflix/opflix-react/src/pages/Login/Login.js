@@ -24,7 +24,7 @@ class Login extends Component {
     efetuarLogin = (event) => {
         event.preventDefault();
 
-        Axios.post("http://192.168.4.240:5000/api/login", {
+        Axios.post("http://192.168.4.240:5001/api/login", {
             email: this.state.email,
             senha: this.state.senha
         })
@@ -70,9 +70,7 @@ class Login extends Component {
                                             name="password" />
                                     </div>
                                     <div className="item">
-                                        <button className="btnbtn__login" id="btn__login">
-                                            Login
-                                </button>
+                                        <button className="btnbtn__login" id="btn__login"> Login </button>
                                     </div>
                                     <Link to="/criarconta" className='criar_conta'>Criar conta!</Link>
                                 </form>

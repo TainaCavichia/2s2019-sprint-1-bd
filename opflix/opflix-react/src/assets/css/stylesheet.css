@@ -24,7 +24,7 @@ html {
     height: 100vh;
 }
 .diminuirPadding{
-    padding-top: 10.2vh;
+    padding-top: 8vh;
     text-align: center;
     font-size: 4vh;
     color: #8D0D0D;
@@ -167,7 +167,7 @@ footer{
 }
 #infos > ul > li{
     margin: 10px;
-                    color: #000;
+    color: #000;
     
 }
 #infos > ul{

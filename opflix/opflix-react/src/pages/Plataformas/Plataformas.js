@@ -18,7 +18,7 @@ class Plataformas extends Component{
     }
 
     listaAtualizada = () =>{
-        fetch('http://192.168.4.240:5000/api/plataformas', { headers: {
+        fetch('http://192.168.4.240:5001/api/plataformas', { headers: {
 
             'Authorization': 'Bearer ' + localStorage.getItem('usuario-opflix')
         },})
@@ -29,7 +29,7 @@ class Plataformas extends Component{
     adicionaItem = (event) => {
         event.preventDefault();
         console.log(this.state.nome);
-        fetch('http://192.168.4.240:5000/api/plataformas',{
+        fetch('http://192.168.4.240:5001/api/plataformas',{
             method: "POST",
             body: JSON.stringify({ nome: this.state.nome }),
             headers: {
