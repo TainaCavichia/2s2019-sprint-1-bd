@@ -25,7 +25,7 @@ namespace Senai.OpFlix.WebApi.Controllers
         }
 
         
-      
+        [Authorize(Roles = "Administrador")]
         [HttpGet]
         public IActionResult Listar()
         {

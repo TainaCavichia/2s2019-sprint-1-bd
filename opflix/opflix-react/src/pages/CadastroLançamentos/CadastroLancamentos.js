@@ -26,7 +26,7 @@ class CadastroLancamentos extends Component {
     }
 
     componentDidMount() {
-        Axios.get('http://192.168.4.240:5000/api/categorias', {
+        Axios.get('http://192.168.4.240:5001/api/categorias', {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('usuario-opflix')
             }
@@ -37,7 +37,7 @@ class CadastroLancamentos extends Component {
             .catch(erro => {
                 console.log(erro);
             });
-        Axios.get('http://192.168.4.240:5000/api/plataformas', {
+        Axios.get('http://192.168.4.240:5001/api/plataformas', {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('usuario-opflix')
             }

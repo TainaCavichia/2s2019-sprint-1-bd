@@ -1,100 +1,68 @@
 import React, { Component } from 'react';
-import GoogleMapReact from 'google-maps-react';
-import Axios from 'axios';
-import PinIcon from '../../assets/img/icon.png';
-import logo from '../../assets/img/logovermelho.png'
-import {Link} from 'react-router-dom';
+import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
+import logo from '../../assets/img/logovermelho.png';
+import { Link } from 'react-router-dom';
 
-const Pin = ({ lancamento }) =>
-  <div className="pin">
-    <img src={PinIcon} alt="Pin" className="pin-icon" />
-    <p className="TituloPin">{lancamento.titulo}</p>
-  </div>
-
-class Localizacao extends Component {
+class Mapa extends Component {
 
   constructor() {
     super();
     this.state = {
-      carregarMapa: false,
-      localizacoes: []
-    };
-  }
-
-  componentDidMount() {
-    this.carregarLocalizacoesLancamento();
-    setTimeout(console.log(this.state.localizacoes), 1000)
-  }
-
-  carregarLocalizacoesLancamento() {
-    Axios.get('http://192.168.4.240:5001/api/localizacoes')
-        .then(response => {
-            this.setState({ localizacoes: response.data });
-            console.log(this.state.localizacoes)
-        })
-        .then(this.setState({ carregarMapa: true }));
-  }
-
-  createMapOptions(maps) {
-    return {
-      zoomControlOptions: {
-        position: maps.ControlOptions.TOP_LEFT,
-        style: maps.zoomControlStyle.SMALL
-      },
-      mapTypeControlOptions: {
-        position: maps.ControlOptions.TOP_RIGHT
-      },
+      Localizacoes: []
     }
   }
 
-    Logout = (event) => {
-        localStorage.removeItem("usuario-opflix");
-        this.props.history.push('/');
-    }
+  carregar = () => {
+    fetch("http://192.168.4.240:5001/api/localizacoes", {
+      headers: {
+        Authorization: 'Bearer ' + localStorage.getItem('usuario-opflix')
+      }
+    })
+      .then(response => response.json())
+      .then(data => this.setState({ Localizacoes: data }), console.log(this.state.Localizacoes))
+      .catch(error => console.log(error));
+  }
+
+  marcadores = () => {
+    let marcador = [];
+    this.state.Localizacoes.forEach(element => {
+      marcador.push(
+        <Marker title={element.lancamento.titulo} position={{ lat: element.latitude, lng: element.longitude }} />
+      )
+    })
+    return marcador;
+  }
+
+  componentWillMount() {
+    this.carregar();
+  }
 
   render() {
-    console.log(this.state.localizacoes)
     return (
-      <div>
-        <  defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSzVh-P1he1vUWXeShZ1Q2M1sD8NGqONs&callback=initMap"
-  type="text/java"/>
-        <nav>
-            <ul>
-                <li><img src={logo} alt=""/></li>
-                <li><Link to='/lancamentos'>Lançamentos</Link></li>
-                <li><Link onClick={this.Logout} to='/'>Logout</Link></li>
-            </ul>
+      <body style={{ width: '100%', height: '100vh' }}>
+        <nav className="mennnu">
+          <ul>
+            <img src={logo} alt="" />
+            <li><Link to='/lancamentos'>Lançamentos</Link></li>
+            <li><Link onClick={this.Logout} to='/'>Logout</Link></li>
+          </ul>
         </nav>
-        <h2>Localização</h2>
-
-        {this.state.carregarMapa === false ? <span /> :
-          <div style={{
-            height: '80vh',
-            width: '100%',
-          }}>
-            <GoogleMapReact
-              defaultCenter={{ lat: -23.5364936, lng: -46.6483357 }}
-              defaultZoom={12}
-            >
-
-              {this.state.localizacoes.map(item => {
-                return (
-                  <Pin
-                    key={item.lancamento.nomeMidia}
-                    lat={item.latitude}
-                    lng={item.longitude}
-                    lancamento={item.lancamento}
-                  />
-                )
-              })}
-            </GoogleMapReact>
-          </div>
-        }
-      </div>
-    );
+        <Map google={this.props.google}
+          className={'map'}
+          zoom={11}
+          initialCenter={{
+            lat: -23.5299047,
+            lng: -46.753078
+          }}
+        >
+        {this.marcadores()}
+                </Map>
+            </body >
+        )
   }
 }
 
-export default Localizacao;
-
+export default GoogleApiWrapper({
+  apiKey: ("")
+})(Mapa)
 

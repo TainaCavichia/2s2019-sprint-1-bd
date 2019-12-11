@@ -50,6 +50,7 @@ class Lancamentos extends Component {
                                 <Link className="peppa" to="/categorias">Categorias</Link>
                                 <Link className="peppa" to="/cadastrolancamentos">Lançamentos</Link>
                                 <Link className="peppa" to="/usuarios">Usuários</Link>
+                                <Link className="peppa" to="/mapa">Mapa</Link>
                                 <Link className="peppa" to="/">Logout</Link>
                             </nav>
                         </div>

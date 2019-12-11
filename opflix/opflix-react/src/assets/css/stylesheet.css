@@ -54,6 +54,19 @@ html {
     font-size: 2.5vh;
     width: 50%;
 }
+.mennnu > ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center
+}
+.mennnu > ul > li > a{
+    color: white;
+    font-size: 1.2em;
+}
+.mennnu > ul > img{
+    width: 10%;
+    height: 10%;
+}
 .input_categoria{
     width: 50vh;
     height: 5vh;
