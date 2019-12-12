@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Footer from '../../components/Footer/Footer';
 import Titulo from '../../components/Titulo/Titulo'
+import logo from '../../assets/img/logobranco.png';
 import '../../assets/css/stylesheet.css';
 import {Link} from 'react-router-dom';
 
@@ -18,7 +19,8 @@ class Plataformas extends Component{
     }
 
     listaAtualizada = () =>{
-        fetch('http://192.168.4.240:5001/api/plataformas', { headers: {
+        fetch('http://192.168.4.240:5001/api/plataformas', 
+        { headers: {
 
             'Authorization': 'Bearer ' + localStorage.getItem('usuario-opflix')
         },})
@@ -37,7 +39,7 @@ class Plataformas extends Component{
                 "Content-Type": "application/json"
             }
         })
-        .then(this.listaAtualizada())
+        .then(this.listaAtualizada)
         .catch(error => console.log(error))
         
     }
@@ -54,7 +56,7 @@ class Plataformas extends Component{
     <div >
         <nav className="container">
         <div className="conteudo-imagem">
-            <img className="logo" src="https://fontmeme.com/permalink/191012/f031c30da3e8b41e40dc9ad5f3a3559e.png"/>
+            <img className="logo" src={logo}/>
         </div>
         <div className="admin">
             <Link className="abacaxi" to="/plataformas">Plataformas</Link>

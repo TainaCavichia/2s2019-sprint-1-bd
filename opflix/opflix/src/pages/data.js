@@ -44,7 +44,7 @@ class Data extends Component {
 };
 
   _carregarLancamentos = async () => {
-    await fetch('http://192.168.4.240:5000/api/lancamentos/filtrarpordata/' + this.state.Data, {
+    await fetch('http://192.168.4.240:5001/api/lancamentos/filtrarpordata/' + this.state.Data, {
       method: 'GET',
       headers: {
         "Accept": "application/json",

@@ -35,7 +35,7 @@ class Main extends Component {
     _carregarLancamentos = async () => {
         try {
             let token = await AsyncStorage.getItem('@opflix:token');
-            await fetch('http://192.168.4.240:5000/api/lancamentos', {
+            await fetch('http://192.168.4.240:5001/api/lancamentos', {
                 method: 'GET',
                 headers: {
                     "Content-Type": "application/json",

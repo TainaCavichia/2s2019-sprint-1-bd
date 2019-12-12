@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Footer from '../../components/Footer/Footer';
-import Titulo from '../../components/Titulo/Titulo'
+import logo from '../../assets/img/logobranco.png';
 import '../../assets/css/stylesheet.css';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -47,7 +47,7 @@ class CriarConta extends Component {
 
     adicionaItem = (event) => {
         event.preventDefault();
-
+        
         Axios.post('http://192.168.4.240:5001/api/usuarios', {
             nome: this.state.nome,
             email: this.state.email,
@@ -81,7 +81,7 @@ class CriarConta extends Component {
                     <div >
                         <nav className="container">
                             <div className="conteudo-imagem">
-                                <img className="logo" src="https://fontmeme.com/permalink/191012/f031c30da3e8b41e40dc9ad5f3a3559e.png" />
+                                <img className="logo" src={logo}/>
                             </div>
                             <div className="admn">
                                 <Link to="/" className="abacaxi">Home</Link>
@@ -99,6 +99,7 @@ class CriarConta extends Component {
                                     
                                         <input 
                                             onInput={this.atualizarNome}
+                                            required
                                             placeholder="nome"
                                             name="name"
                                             type="text" /> <br/>
@@ -106,12 +107,14 @@ class CriarConta extends Component {
                                     
                                         <input 
                                             onInput={this.atualizarEmail}
+                                            required
                                             placeholder="email"
                                             name="email"
                                             type="email" /> <br/>
                                 
                                 
                                         <input 
+                                            required
                                             onInput={this.atualizarDataNascimento}
                                             placeholder="nascimento"
                                             type="date"
@@ -119,6 +122,7 @@ class CriarConta extends Component {
                                     
                                     
                                         <input 
+                                            required
                                             onInput={this.atualizarCPF}
                                             placeholder="cpf"
                                             type="text"
@@ -126,12 +130,14 @@ class CriarConta extends Component {
                                     
                                         <input 
                                             onInput={this.atualizarTelefone}
+                                            required
                                             placeholder="telefone"
                                             type="tel"
                                             name="telefone" /> <br/>
                                     
                                         <input 
                                             onInput={this.atualizarSenha}
+                                            required
                                             placeholder="senha"
                                             type="password"
                                             name="senha" /> <br/>

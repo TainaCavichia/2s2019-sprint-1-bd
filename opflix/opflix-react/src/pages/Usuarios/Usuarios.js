@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Footer from '../../components/Footer/Footer';
 import Titulo from '../../components/Titulo/Titulo'
 import Axios from 'axios';
+import logo from '../../assets/img/logobranco.png';
 import '../../assets/css/stylesheet.css';
 import {Link} from 'react-router-dom';
 
@@ -34,7 +35,7 @@ class Usuarios extends Component {
                     <div >
                         <nav className="container">
                             <div className="conteudo-imagem">
-                                <img className="logo" src="https://fontmeme.com/permalink/191012/f031c30da3e8b41e40dc9ad5f3a3559e.png" />
+                                <img className="logo" src={logo} />
                             </div>
                             <div className="admin">
                             <Link to="/criarcontaadm" className="abacaxi">Cadastrar</Link>

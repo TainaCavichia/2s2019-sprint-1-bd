@@ -52,7 +52,7 @@ html {
     display: flex;
     justify-content: space-around;
     font-size: 2.5vh;
-    width: 50%;
+    width: 60%;
 }
 .mennnu > ul{
     display: flex;
@@ -84,6 +84,7 @@ html {
     display: flex;
     justify-content: space-between;
     font-size: 2.5vh;
+    width: 10%;
 }
 .lolo{
     background-color: #8D0D0D;
@@ -280,6 +281,7 @@ main{
 .item {    
     text-decoration: none;
     color: white;
+    font-size: 2.5vh;
 }
 .menu{
     display: flex;

@@ -3,6 +3,7 @@ import Footer from '../../components/Footer/Footer';
 import Titulo from '../../components/Titulo/Titulo'
 import Axios from 'axios';
 import '../../assets/css/stylesheet.css';
+import logo from '../../assets/img/logovermelho.png';
 import jokerposter from '../../assets/img/jokerposter.png'
 import bola1 from '../../assets/img/png.png'
 import bola2 from '../../assets/img/aa.png'
@@ -43,7 +44,7 @@ class Lancamentos extends Component {
                     <div className="aaa">
                         <div className="divdiv">
                             <div className="opop">
-                                <img className="logo" src="https://fontmeme.com/permalink/191012/733b6dd4db71e3c5c747ba52909fde7d.png" alt="netflix-font" />
+                                <img className="logo" src={logo} alt="netflix-font" />
                             </div>
                             <nav className="men">
                                 <Link className="peppa" to="/">Logout</Link>

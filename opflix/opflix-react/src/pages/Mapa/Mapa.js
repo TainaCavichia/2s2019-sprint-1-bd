@@ -49,7 +49,7 @@ class Mapa extends Component {
         </nav>
         <Map google={this.props.google}
           className={'map'}
-          zoom={11}
+          zoom={10}
           initialCenter={{
             lat: -23.5299047,
             lng: -46.753078

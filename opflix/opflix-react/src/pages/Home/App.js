@@ -3,6 +3,7 @@ import Footer from '../../components/Footer/Footer';
 import Titulo from '../../components/Titulo/Titulo'
 import '../../assets/css/stylesheet.css';
 import {Link} from 'react-router-dom';
+import logo from '../../assets/img/logovermelho.png';
 import jokerposter from '../../assets/img/jokerposter.png'
 import toystory from '../../assets/img/Toy-Story-4.jpg'
 import casa from '../../assets/img/lacasadepapel.jpg'
@@ -17,7 +18,7 @@ function App() {
         <div className="aaa">
             <div className="divdiv">
               <div className="opop">
-                <img className="logo" src="https://fontmeme.com/permalink/191012/733b6dd4db71e3c5c747ba52909fde7d.png" alt="netflix-font" />
+                <img className="logo" src={logo} alt="netflix-font" />
               </div>      
                 <nav className="menuzinho">
                     <a href="#conteudoPrincipal-eventos">Funcionalidades</a>

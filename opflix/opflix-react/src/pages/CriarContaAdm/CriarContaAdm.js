@@ -4,6 +4,7 @@ import Titulo from '../../components/Titulo/Titulo'
 import '../../assets/css/stylesheet.css';
 import Axios from 'axios';
 import {Link} from 'react-router-dom';
+import logo from '../../assets/img/logobranco.png'
 
 class CriarContaAdm extends Component{
     constructor() {
@@ -84,7 +85,7 @@ render(){
     <div >
         <nav className="container">
         <div className="conteudo-imagem">
-            <img className="logo" src="https://fontmeme.com/permalink/191012/f031c30da3e8b41e40dc9ad5f3a3559e.png" />
+            <img className="logo" src={logo} />
         </div>
         <div className="admin">
             <Link className="abacaxi" to="/plataformas">Plataformas</Link>

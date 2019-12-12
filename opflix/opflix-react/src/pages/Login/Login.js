@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 import '../../assets/css/stylesheet.css';
-import logo from '../../assets/img/iti.jpg';
+import logo from '../../assets/img/logovermelho.png';
+import iti from '../../assets/img/iti.jpg';
 import { Link } from 'react-router-dom';
 
 class Login extends Component {
@@ -46,7 +47,7 @@ class Login extends Component {
     render() {
         return (
             <div>
-                <img className="iti" src={logo} />
+                <img className="iti" src={iti} />
                 <main className="conteudoPrincipal">
                     <section id="conteudoPrincipal-eventos">
                         <div className="a">
@@ -54,7 +55,7 @@ class Login extends Component {
                             </div>
                             <div className="formularioo">
                                 <form onSubmit={this.efetuarLogin}>
-                                    <img className="opflix" src="https://fontmeme.com/permalink/191012/733b6dd4db71e3c5c747ba52909fde7d.png" />
+                                    <img className="opflix" src={logo} />
                                     <div className="item">
                                         <input className="input__login"
                                             placeholder="username"
@@ -69,6 +70,7 @@ class Login extends Component {
                                             type="password"
                                             name="password" />
                                     </div>
+                                    <p style={{color:"red"}}>{this.state.erro}</p>
                                     <div className="item">
                                         <button className="btnbtn__login" id="btn__login"> Login </button>
                                     </div>

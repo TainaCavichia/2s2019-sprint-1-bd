@@ -45,7 +45,7 @@ class Categorias extends Component {
 
     }
     _carregarCategorias = async () => {
-        await fetch('http://192.168.4.240:5000/api/categorias', {
+        await fetch('http://192.168.4.240:5001/api/categorias', {
             headers: {
                 "Accept": "application/json",
                 "Authorization": "Bearer " + await AsyncStorage.getItem('@opflix:token')
@@ -56,7 +56,7 @@ class Categorias extends Component {
             .catch(erro => console.warn(erro));
     }
     _carregarLancamentos = async (itemValue) => {
-        await fetch('http://192.168.4.240:5000/api/lancamentos/filtrarporcategoria/' + itemValue, {
+        await fetch('http://192.168.4.240:5001/api/lancamentos/filtrarporcategoria/' + itemValue, {
             headers: {
                 "Accept": "application/json",
                 "Authorization": "Bearer " + await AsyncStorage.getItem('@opflix:token')
